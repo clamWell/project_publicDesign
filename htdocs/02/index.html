@@ -1,4 +1,5 @@
 <?php
+	$common_css = "../common_source/common.css?" . filemtime("../common_source/common.css");
 	$css = "css/style.css?" . filemtime("css/style.css");
 	$js = "js/custom.js?" . filemtime("js/custom.js");
 ?>
@@ -29,20 +30,21 @@
 
     <!-- 스타일시트 태그-->
 	<link rel="stylesheet" type="text/css" href="https://img.khan.co.kr/spko/storytelling/recothumb/digiReco.css" />
+ 	<link rel="stylesheet" type="text/css" href="<?php echo $common_css; ?>" />
  	<link rel="stylesheet" type="text/css" href="<?php echo $css; ?>" />
-    <link rel="stylesheet" type="text/css" href="css/twentytwenty.css"/>
+    <link rel="stylesheet" type="text/css" href="../common_source/twentytwenty.css"/>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
 
     <!-- 스크립트 태그-->
 	<!--library-->
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/plugin/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="../common_source/jquery.easing.1.3.js"></script>
 	<!--library-->
 
 	<!--analystics-->
 	<script type="text/javascript" src="https://news.khan.co.kr/kh_storytelling/digiReco.js"></script>
-    <script type="text/javascript" src="js/jquery.event.move.js"></script>
-    <script type="text/javascript" src="js/jquery.twentytwenty.js"></script>
+    <script type="text/javascript" src="../common_source/jquery.event.move.js"></script>
+    <script type="text/javascript" src="../common_source/jquery.twentytwenty.js"></script>
 	<script src="https://unpkg.com/three@0.118.3/build/three.js"></script>
 
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/khan_analystics.js"></script>
@@ -182,12 +184,12 @@
 					<div class="story-header-line-deco">
 						<div class="deco-curve deco-curve-top-1">
 							<svg id="CURVE_TOP" class="intro-path-ani">
-								<path d="M 0,0 Q50,400 -2000,800"></path>
+								<path d="M 0,0 Q50, 200 600,300"></path>
 							</svg>
 						</div>
 						<div class="deco-curve deco-curve-top-2">
 							<svg id="CURVE_TOP_2" class="intro-path-ani">
-								<path d="M 0,0 Q50,400 2000,500"></path>
+								<path d="M 0,0 Q50,200 2000,500"></path>
 							</svg>
 						</div>
 						<div class="deco-line-box">
@@ -196,11 +198,7 @@
 									<div class="line-body"></div>
 								</div>
 								<div class="line-vertical">
-									<div class="deco-curve deco-curve-box-side">
-										<svg id="CURVE_BOX_SIDE" class="intro-path-ani">
-											<path d="M 0,0 Q100,350 500,400"></path>
-										</svg>
-									</div>
+									<div class="line-horizon"></div>
 								</div>
 								<div class="deco-curve deco-curve-bottom">
 									<svg id="CURVE_BOTTOM">
@@ -219,6 +217,9 @@
 									</video>
 								</div>
 								<div class="video-cover"></div>
+							</div>
+							<div class="photo-temp">
+								<img src="img/intro-top-temp.jpg" alt="">
 							</div>
 							<div class="cover-text">
 								<div class="text-holder">
@@ -361,15 +362,19 @@
 									<img src="img/st--01.png" alt="그곳만 가면 정신이 없었다 ">
 								</div>
 							</div>
+								
+							<div class="img-holder" id="S01_01">
+								<img src="img/s01-01.jpg" alt="표지판이미지" class="img-shadow-bottom">
+							</div>
+
 
 							<div class="para-holder">
-								<p class="strong">“예전에 여기서 사고가 날뻔한 적이 있어요”</p>
-								<p>전라북도 익산시에 거주하는 송재희(35)씨는 매주 월요일 중앙 시장을 방문해 장을본다. 중앙시장은 익산의 가장 대표적인 전통시장이다. 주민들에게는 하루의 식탁을 만들고 삶을 채우는 일상적인 공간이기도 하다.</p>
-								<p>50여 년의 전통을 자랑하는 익산시 중앙동 중앙시장 입구의 간판이 푸근하다. 익산시는 중앙 및 창인동 일대 주차난을 해결하기 위해 대규모 주차장을 준비했다. 재래시장 활성화를 위해 익산시가 지난 1년 노력한 결과다.</p>
+								<p>유독 표지판이잘 안보이고, 주변이 복잡한 도로가 있다. 그곳이 심지어 출구가 6곳에 달하는 로터리라면 어떨까?</p>
+								<p>제주도 서귀포시 일호광장은 서귀포시 주민들에게 바로 그런 ‘지옥’ 같은 곳이었다.</p>
+								<p class="strong">“시에서 가장 많은 교통사고가 발생한 곳을 조사했는데, 여가 바로 1위였지요.” </p>
+								<p>서귀포시 일호광장은 1966년 서귀포시의 첫 광장이 된 역사성 깊은 장소로, 서귀포시민이 단합하는 구심점 역할을 해왔지만 현재 도내 교통사고 다발지점이라는 오명을 쓰고 광장의 공공성을 잃었다. 시민들의 안전한 도로환경 및 거리 조성에 대한 요구가 지속적으로 제기돼 왔다.</p>
 							</div>
-							<div class="para-holder">
-								<p>대리석 바닥을 걷다보니 최신 트랜드 가방을 파는 가게와 화장품 매장, 의류매장도 만나볼 수 있었다. 젊음의 거리는 지금도 학생을 비롯한 다양한 사람들이 찾는 쇼핑의 중심가의 모습을 보이고 있다.</p>
-							</div>
+
 								
 							<div class="itv-holder itv--01">
 								<div class="itv-video video-mx-md video-border">
@@ -377,6 +382,9 @@
 										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
 											<source src="video/s01-itv-01.mp4" type="video/mp4">
 										</video>
+									</div>
+									<div class="video-photo-temp">
+										<img src="img/s01-02.jpg" alt="">
 									</div>
 									<div class="itv-video-line-deco">
 										<div class="line-body"></div>
@@ -393,45 +401,50 @@
 							</div>
 
 							<div class="para-holder">
-								<p>대리석 바닥을 걷다보니 최신 트랜드 가방을 파는 가게와 화장품 매장, 의류매장도 만나볼 수 있었다. 젊음의 거리는 지금도 학생을 비롯한 다양한 사람들이 찾는 쇼핑의 중심가의 모습을 보이고 있다.</p>
-								<p>1977년부터 정식으로 시장의 모습을 갖추게 된 중앙시장은 우천시를 대비한 천장, 시장 간판제와 특색 있는 테마거리를 갖추고 믿을 수 있는 다양한 지역상품과 먹거리를 제공하는 21세기형 고객 맞춤 시장으로 발돋움 하고 있다.</p>
+								<p>문제는 도로 표지판과 변압기였다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>보행자가 지나가는 길이나 횡단보도도 따로 없어서 시장으로 이동하는 보행자,주민들과 주차 차량의 동선도 혼잡하게 뒤섞이곤 했다.</p>
 							</div>
 
-							<div class="img-holder" id="IMG_S01_01">
-								<div class="deco-curve-holder">
-									<div class="deco-curve">
-										<svg id="S01_IMG_DECO_CURVE">
-											<path d="M 0,0 Q50,400 -2000,800"></path>
-										</svg>
+							<div class="itv-holder itv--02">
+								<div class="itv-video video-mx-md video-border">
+									<div class="video-tag video-pc video-shadow-bottom">
+										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
+											<source src="video/s01-itv-01.mp4" type="video/mp4">
+										</video>
+									</div>
+									<div class="video-photo-temp">
+										<img src="img/s01-03.jpg" alt="">
+									</div>
+									<div class="itv-video-line-deco">
+										<div class="line-body"></div>
+									</div>
+									<div class="itv-point-text">
+										<div class="text-as-img">
+											<img src="img/s01-itv01-text.png" alt="인터뷰 내용 중 핵심 메세지">
+										</div>
+									</div>
+									<div class="go-itv-full">
+										<p>인터뷰 영상 전체 보러가기</p>
 									</div>
 								</div>
-								<img src="img/s01-01.jpg" alt="">
-							</div>
-							
-							<div class="img-text-col-holder img-holder-float-top">
-								<div class="col-left col-img">
-									<img src="img/s01-02.jpg" alt="">
-								</div>
-								<div class="col-right col-text">
-									<div class="para-holder">
-										<p>새로 생긴 휴식 공간 ‘쉼표’에 자주 놀러온다는 김홍식(62), 박영기(64), 김춘재(71)씨의 표정이 밝다. 쉼표가 생긴 이후 많은 주민들이 시장에 왔다가 이곳에서 담소도 나누고 동네 친구들과 시간을 보내고 간다.</p>
-										<p>처음 공사를 한다고 들었을 때는 주민들 사이에서 리모델링에 대해 부정적인 시선들이 많았다고 한다. 불편하고 위험하더라도 오랜시간 익숙해져온 공간이에 이것을 바꾼다는 것이 마뜩치 않았기 때문이다. 관이 주도하는 공사에 대한 부정적인 인식도 한몫 했다.</p>
-										<p>그럼 많은 부분이 변화한 지금,주민들은 새로운 중앙시장의 모습에 만족하고 있을까. </p>
-										<p>“일단 우리도 참여했잖여. 회의에 많이들 참여했어.”</p>
-									</div>
-								</div>
 							</div>
 
-							<div class="img-holder" id="IMG_S01_03">
-								<img src="img/s01-03.png" alt="">
+							<div class="para-holder">
+								<p>문제는 도로 표지판과 변압기였다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>보행자가 지나가는 길이나 횡단보도도 따로 없어서 시장으로 이동하는 보행자,주민들과 주차 차량의 동선도 혼잡하게 뒤섞이곤 했다.</p>
 							</div>
 
 
+							<!--
 							<div class="fixed-slider-area fixed-slider-video-area">
 								<div class="fixed-holder fixed-el">
 									<div class="video-fullScreen">
 										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video"	poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg">
-											<source src="video/intro-high.mp4" type="video/mp4">
+											<source src="video/jeju_acc_video.mp4" type="video/mp4">
 										</video>
 									</div>
 								</div>
@@ -440,76 +453,72 @@
 									<div class="spacer"></div>
 									<div class="spacer">
 										<div class="text-box">
-											<p>단순히 찾아오기 쉬워지고,</p>
-											<p>주차가 쉬워지고,</p>
-											<p>걷기 안전해지는 것을 넘어서</p>
-											<p>새롭게 쉬고 갈 수 있는</p>
-											<p>공간이 생겼다는 점을 주민들은</p>
-											<p>가장 좋은 점으로 꼽았다.</p>
+											<p>보행자가 지나가는 길이나</p>
+											<p>횡단보도도 따로 없어서</p>
+											<p>시장으로 이동하는 보행자,주민들과</p>
+											<p>주차 차량의 동선도 혼잡하게</p>
+											<p>뒤섞이곤 했다.</p>
 										</div>
 									</div>
 									<div class="spacer">
 										<div class="text-box">
-											<p>단순히 찾아오기 쉬워지고,</p>
-											<p>주차가 쉬워지고,</p>
-											<p>걷기 안전해지는 것을 넘어서</p>
-											<p>새롭게 쉬고 갈 수 있는</p>
-											<p>공간이 생겼다는 점을 주민들은</p>
-											<p>가장 좋은 점으로 꼽았다.</p>
+											<p>보행자가 지나가는 길이나</p>
+											<p>횡단보도도 따로 없어서</p>
+											<p>시장으로 이동하는 보행자,주민들과</p>
+											<p>주차 차량의 동선도 혼잡하게</p>
+											<p>뒤섞이곤 했다.</p>
 										</div>
 									</div>
 									<div class="spacer">
 										<div class="text-box">
-											<p>단순히 찾아오기 쉬워지고,</p>
-											<p>주차가 쉬워지고,</p>
-											<p>걷기 안전해지는 것을 넘어서</p>
-											<p>새롭게 쉬고 갈 수 있는</p>
-											<p>공간이 생겼다는 점을 주민들은</p>
-											<p>가장 좋은 점으로 꼽았다.</p>
+											<p>보행자가 지나가는 길이나</p>
+											<p>횡단보도도 따로 없어서</p>
+											<p>시장으로 이동하는 보행자,주민들과</p>
+											<p>주차 차량의 동선도 혼잡하게</p>
+											<p>뒤섞이곤 했다.</p>
 										</div>
 									</div>
 									<div class="spacer">
 										<div class="text-box">
-											<p>단순히 찾아오기 쉬워지고,</p>
-											<p>주차가 쉬워지고,</p>
-											<p>걷기 안전해지는 것을 넘어서</p>
-											<p>새롭게 쉬고 갈 수 있는</p>
-											<p>공간이 생겼다는 점을 주민들은</p>
-											<p>가장 좋은 점으로 꼽았다.</p>
+											<p>보행자가 지나가는 길이나</p>
+											<p>횡단보도도 따로 없어서</p>
+											<p>시장으로 이동하는 보행자,주민들과</p>
+											<p>주차 차량의 동선도 혼잡하게</p>
+											<p>뒤섞이곤 했다.</p>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-box">
+											<p>보행자가 지나가는 길이나</p>
+											<p>횡단보도도 따로 없어서</p>
+											<p>시장으로 이동하는 보행자,주민들과</p>
+											<p>주차 차량의 동선도 혼잡하게</p>
+											<p>뒤섞이곤 했다.</p>
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="para-holder">
-								<p class="strong center">“다음주엔 음악회가 있다고 하더라구요.<br/>그래서 또 놀러오려구요”</p>
-								<p>50여 년의 전통을 자랑하는 익산시 중앙동 중앙시장 입구의 간판이 푸근하다. 익산시는 중앙 및 창인동 일대 주차난을 해결하기 위해 대규모 주차장을 준비했다. 재래시장 활성화를 위해 익산시가 지난 1년 노력한 결과다.</p>
-							</div>
-						</div>  
+							</div>-->
 
-						<div class="each-sec sec--02">
-							<div class="sec-title">
-								<p class="numb">02</p>
-								<p class="subtitle">두번째:</p>
-								<p class="title">입구를 찾을 수 없었다</p>
-								<div class="title-as-img">
-									<img src="img/st--02.png" alt="입구를 찾을 수 없었다">
-								</div>
-							</div>
-
-							<div class="para-holder">
-								<p>50년 된 오래된 시장과 세월을 함께한 만큼, 공사 전 중앙시장의 주차장은 연식이 상당했다. 그러나 가장 큰 문제는 대로변에서 시장의 주차장으로 들어오는 길을 쉽게 찾을 수 없다는 점이었다.</p>
-								<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
-							</div>
-							
-
-							<div class="fixed-slider-area fs-a fs-a--1">
+							<div class="fixed-slider-area fs-a fs-a--1 fixed-slider-horizon fs-black">
 								<div class="fixed-holder fixed-el">
 									<div class="fixed-graphic">
 										<div class="slider-item item--01">
-											<img src="img/s02-f-01.jpg" alt="">
+											<img src="img/s01-f-01.jpg" alt="">
 										</div>
 										<div class="slider-item item--02">
-											<img src="img/s02-f-02.jpg" alt="">
+											<img src="img/s01-f-02.jpg" alt="">
+										</div>
+										<div class="slider-item item--03">
+											<img src="img/s01-f-03.jpg" alt="">
+										</div>
+										<div class="slider-item item--04">
+											<img src="img/s01-f-04.jpg" alt="">
+										</div>
+										<div class="slider-item item--05">
+											<img src="img/s01-f-05.jpg" alt="">
+										</div>
+										<div class="slider-item item--06">
+											<img src="img/s01-f-06.jpg" alt="">
 										</div>
 									</div>
 								</div>
@@ -531,16 +540,161 @@
 											</div>
 										</div>
 									</div>
+									<div class="spacer">
+										<div class="text-nobox">
+											<div class="half">
+												<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+												<p>“첨 오는 사람들은 절대 못 찾혀. 그 밤에 껌껌해져봐. 표지판이 안 보인단께.”</p>
+											</div>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-nobox">
+											<div class="half">
+												<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+												<p>“첨 오는 사람들은 절대 못 찾혀. 그 밤에 껌껌해져봐. 표지판이 안 보인단께.”</p>
+											</div>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-nobox">
+											<div class="half">
+												<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+												<p>“첨 오는 사람들은 절대 못 찾혀. 그 밤에 껌껌해져봐. 표지판이 안 보인단께.”</p>
+											</div>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-nobox">
+											<div class="half">
+												<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+												<p>“첨 오는 사람들은 절대 못 찾혀. 그 밤에 껌껌해져봐. 표지판이 안 보인단께.”</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 
+							<div class="para-holder para-with-beside-img">
+								<div class="para-beside-img para-beside-img-01">
+									<div class="img-dummy img-dummy-01">
+										<img src="img/small-frag-right-3.png" alt="" id="SM_FRAG_01" class="mousemove_el">
+										<img src="img/car-crushed-right.png" alt="" id="CAR_CRUSHED_01" class="mousemove_el">
+										<img src="img/small-frag-right-2.png" alt="" id="SM_FRAG_02" class="mousemove_el">
+										<img src="img/small-frag-right.png" alt="" id="SM_FRAG_03" class="mousemove_el">
+									</div>
+									<div class="img-dummy img-dummy-02">
+										<img src="img/car-crushed-blur-left.png" alt="" id="CAR_CRUSHED_02" class="mousemove_el">
+									</div>
+									<div class="img-dummy img-dummy-03">
+										<img src="img/small-frag-bottom-3.png" alt="" id="SM_FRAG_04" class="mousemove_el">
+										<img src="img/small-frag-bottom-2.png" alt="" id="SM_FRAG_05" class="mousemove_el">
+										<img src="img/small-frag-bottom-1.png" alt="" id="SM_FRAG_06" class="mousemove_el">
+										<img src="img/big-frag-blur.png" alt="" id="SM_FRAG_07" class="mousemove_el">
+									</div>
+								</div>
 
+								<p>서귀포경찰서가 집계한 교통사고현황에 따르면 지난 한해에만 이 구간에서 7건의 교통사고가 발생했고 올 들어서 현재까지 10건의 사고가 발생해 1명이 사망했다.</p>
+								<p>후문 횡단보도에서는 매년 크고 작은 교통사고가 끊이지 않는 곳이다. 이곳 주변에서 음식점을 운영하고 있는 김모씨(43)는 “신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
+								<p class="strong">“신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+							</div>
+							
 							<div class="para-holder">
-								<p>50년 된 오래된 시장과 세월을 함께한 만큼, 공사 전 중앙시장의 주차장은 연식이 상당했다. 그러나 가장 큰 문제는 대로변에서 시장의 주차장으로 들어오는 길을 쉽게 찾을 수 없다는 점이었다.</p>
-								<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+								<p>그랬던 일호광장이 드디어 새롭게 재조성 될 기회를 얻었다. 문화체육관광부가 주최하고 한국공예·디자인문화진흥원이 주관한 '2019년 공공디자인으로 행복한 공간만들기' 공모사업에 서귀포시 '사람중심 일호광장 조성사업'이 선정됐기 때문이다.</p>
+								<p>2019년 하반기부터 착수된 사업은 1년 동안 진행되었다. 일호광장은 어떻게 새로 태어났을까.</p>
 							</div>
 
-							<div class="fixed-slider-area fs-a fs-a--2">
+						</div>  
+
+						<div class="each-sec sec--02">
+							<div class="sec-title">
+								<p class="numb">02</p>
+								<p class="subtitle">두번째:</p>
+								<p class="title">덜어내고 바꾸자 비소로 보이다</p>
+								<div class="title-as-img">
+									<img src="img/st--02.png" alt="덜어내자 비소로 보이다">
+								</div>
+							</div>
+
+							<div class="para-holder">
+								<p>문제는 도로 표지판과 변압기였다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+							</div>
+
+							<div class="tt-slider">
+								<div class="twentytwenty-container" id="TT_HOLDER_03">
+									<img src="img/load-sign-bf.jpg" alt="">
+									<img src="img/load-sign-aft.jpg" alt="">
+								</div>
+								<p class="caption">일호광장 로터리 표지판 변경 전후 모습</p>
+							</div>
+
+							<div class="para-holder">
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>후문 횡단보도에서는 매년 크고 작은 교통사고가 끊이지 않는 곳이다. 이곳 주변에서 음식점을 운영하고 있는 김모씨(43)는 “신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
+							</div>
+
+							<div class="img-holder">
+								<div class="pulseicon-holder">
+									<img src="img/squre-map-with-acc-point.jpg" alt="">
+									<div class="pulse pulse--1">
+										<p class="pulsing-icon"></p> 
+									</div>
+									<div class="pulse pulse--2">
+										<p class="pulsing-icon"></p> 
+									</div>
+								</div>
+							</div>
+
+							<div class="para-holder">
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>후문 횡단보도에서는 매년 크고 작은 교통사고가 끊이지 않는 곳이다. 이곳 주변에서 음식점을 운영하고 있는 김모씨(43)는 “신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
+							</div>
+
+							<div class="itv-holder itv--03">
+								<div class="itv-video video-mx-md video-border">
+									<div class="video-tag video-pc video-shadow-bottom">
+										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
+											<source src="video/s01-itv-01.mp4" type="video/mp4">
+										</video>
+									</div>
+									<div class="video-photo-temp">
+										<img src="img/s02-01.jpg" alt="">
+									</div>
+									<div class="itv-video-line-deco">
+										<div class="line-body"></div>
+									</div>
+									<div class="itv-point-text">
+										<div class="text-as-img">
+											<img src="img/s02-02.png" alt="인터뷰 내용 중 핵심 메세지">
+										</div>
+									</div>
+									<div class="go-itv-full">
+										<p>인터뷰 영상 전체 보러가기</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="para-holder">
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+								<p>후문 횡단보도에서는 매년 크고 작은 교통사고가 끊이지 않는 곳이다. 이곳 주변에서 음식점을 운영하고 있는 김모씨(43)는 “신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
+							</div>
+
+							<div class="tt-slider">
+								<div class="twentytwenty-container" id="TT_HOLDER_04">
+									<img src="img/load-bf.jpg" alt="">
+									<img src="img/load-aft.jpg" alt="">
+								</div>
+								<p class="caption">일호광장 정류장 근처 전압기 이전 설치 전후<p>
+							</div>
+
+							<div class="para-holder">
+								<p>문제는 도로 표지판과 변압기였다.</p>
+								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+							</div>
+
+							<div class="fixed-slider-area fs-a fs-a--2 fixed-slider-img-full">
 								<div class="fixed-holder fixed-el">
 									<div class="fixed-graphic">
 										<div class="slider-item item--01">
@@ -574,35 +728,8 @@
 							</div>
 
 
-
 							<div class="para-holder">
-								<p>50년 된 오래된 시장과 세월을 함께한 만큼, 공사 전 중앙시장의 주차장은 연식이 상당했다. 그러나 가장 큰 문제는 대로변에서 시장의 주차장으로 들어오는 길을 쉽게 찾을 수 없다는 점이었다.</p>
-								<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
-							</div>
-
-							<div class="img-holder img-holder-full" id="S02_03">
-								<img src="img/s02-03.jpg" alt="">
-								<p></p>
-							</div>
-
-							<div class="img-holder img-text-col-holder img-holder-float-top" id="S02_04">
-								<div class="img-side-text">
-									<div class="path"></div>
-									<div class="text-holder">
-										<p>입구 양옆으로 위치한  외벽으로 시야도 확보되지 않았다. 출차 하던 차량이 주차장의 출구를 향하다 좁은 골목길로 들어오던 차량과 부딪히기가 쉬웠다. </p>
-									</div>
-								</div>
-								<img src="img/s02-04.png" alt="">
-							</div>
-
-							<div class="para-holder">
-								<p>50년 된 오래된 시장과 세월을 함께한 만큼, 공사 전 중앙시장의 주차장은 연식이 상당했다. 그러나 가장 큰 문제는 대로변에서 시장의 주차장으로 들어오는 길을 쉽게 찾을 수 없다는 점이었다.</p>
-								<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
-							</div>
-
-							<div class="para-holder">
-								<p>50년 된 오래된 시장과 세월을 함께한 만큼, 공사 전 중앙시장의 주차장은 연식이 상당했다. 그러나 가장 큰 문제는 대로변에서 시장의 주차장으로 들어오는 길을 쉽게 찾을 수 없다는 점이었다.</p>
-								<p>진입을 알려주는 표지판도 식별이 되지 않아 외지인이나 처음 시장을 방문하는 사람들은 ‘아차’하면 주차장의 입구를 지나치기 일쑤였다.</p>
+								<p>횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
 							</div>
 
 						</div>
@@ -610,60 +737,86 @@
 							<div class="sec-title">
 								<p class="numb">03</p>
 								<p class="subtitle">세번째:</p>
-								<p class="title">사람, 보행자 중심으로</p>
+								<p class="title">먹멍 앉멍, 쉬어가는 광장</p>
 								<div class="title-as-img">
 									<img src="img/st--01.png" alt="재희씨의 이야기">
 								</div>
 							</div>
-
 							<div class="para-holder">
-								<p>이 공간을 처음 마주한 박성진 디렉터는 ‘무척 위험해보였다’고 회상했다. 박성진 디렉터는 도시 공간을 기획, 설계하는 일을한다.  </p>
+								<p>횡단보도에 나무를 심어 긴 대기 시간에 시민들이 잠시라도 쉴 수 있는 공간을 만들었다.</p>
+								<p>이전에는 광장 양쪽으로 있는 버스 정류장 주변에 휴게시설이 전혀 없었다. 정류장 공간도 협소하고, 그나마 작게 마련된 녹지와 정류장이 분리되어서 사실상 이용객들이 녹지 공간을 활용하기 어렵게 되어있었다.</p>
+								<p>정류장과 녹지 공간이 결합된 휴게 공간을 확보해서 주민들이 쉬어갈 수 있는 편안한 정원같은 공간을마련하고자했다. 동시에  녹지를 통한 열섬현상을 완화하고자했다.</p>
 							</div>
 
-							<div class="img-holder img-text-col-holder" id="S03_01">
-								<img src="img/s03-01.jpg" alt="">
-								<div class="img-side-text">
-									<div class="text-holder">
-										<img src="img/s03-02.png" alt="">
-									</div>
-								</div>
+							<div class="img-holder" id="S03_01">
+								<img src="img/s03-01.jpg" alt="" class="img-float-left">
+								<img src="img/s03-02.jpg" alt="" class="img-float-right">
 							</div>
 
 							<div class="para-holder">
-								<p>기존의 중앙시장 주차장은 주차장을 들어오는 차량과 나가는 차량, 좁은 공간을 T자로 회차하는 차량과 보행자가 뒤엉킨 공간이었다. </p>
-								<p>박성진 디렉터가 이를 해결하기 위해 도입한 것이  순환 출차체계다. 로터리의 개념처럼  입차, 회차 차량이 주차장 내의 순환되는 큰 원형 길을 따라  따라 자연스럽게 이동하면서 차량의 동선이 정리된다.</p>
-								<p>동선이 정리되면 주차장에서 보행자도 안전해진다. 보행자가 느끼는 위협감, 그리고 운전자들이 차를 주정차할 때 직면하게 되는 여러 가지 위험한 상황들, 이런 것들을 최소화 하려는 노력이 반영된 결과다.</p>
+								<p>횡단보도에 나무를 심어 긴 대기 시간에 시민들이 잠시라도 쉴 수 있는 공간을 만들었다.</p>
+								<p>이전에는 광장 양쪽으로 있는 버스 정류장 주변에 휴게시설이 전혀 없었다. 정류장 공간도 협소하고, 그나마 작게 마련된 녹지와 정류장이 분리되어서 사실상 이용객들이 녹지 공간을 활용하기 어렵게 되어있었다.</p>
+								<p>정류장과 녹지 공간이 결합된 휴게 공간을 확보해서 주민들이 쉬어갈 수 있는 편안한 정원같은 공간을마련하고자했다. 동시에  녹지를 통한 열섬현상을 완화하고자했다.</p>
 							</div>
 
-							<div class="img-holder img-text-col-holder" id="S03_02">
-								<img src="img/s03-03.jpg" alt="">
 
-							</div>
-
-							<div class="para-holder">
-								<p>주차장 내의 영역도 재구성했다. 시장을 방문하는 특정 시간대가 끝나면 주차장이 한산해지는 시간대가 있는데, 그 유효시간대에는 새로운 이벤트가 열릴 수 있는 공간들을 확보했다. </p>
-								<p>그 지역사회나 지역문화의 거점으로서 작동할 수 있는 가능성을 발견한 셈이다. </p>
-							</div>
-
-							<div class="itv-holder itv--02">
-								<div class="itv-video video-mx-md video-border">
-									<div class="video-tag video-pc video-shadow-bottom">
-										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
-											<source src="video/s01-itv-01.mp4" type="video/mp4">
+							<div class="fixed-slider-area fixed-slider-video-area">
+								<div class="fixed-holder fixed-el">
+									<div class="video-fullScreen">
+										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video"	poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg">
+											<source src="video/jeju_bus_interview.mp4" type="video/mp4">
 										</video>
 									</div>
-									<div class="itv-video-line-deco">
-										<div class="line-body"></div>
-									</div>
-									<div class="itv-point-text">
-										<div class="text-as-img">
-											<img src="img/s03-itv02-text.png" alt="인터뷰 내용 중 핵심 메세지">
+								</div>
+								
+								<div class="flow-para spacer-holder">
+									<div class="spacer"></div>
+									<div class="spacer">
+										<div class="text-box">
+											<p>단순히 찾아오기 쉬워지고,</p>
+											<p>주차가 쉬워지고,</p>
+											<p>걷기 안전해지는 것을 넘어서</p>
+											<p>새롭게 쉬고 갈 수 있는</p>
+											<p>공간이 생겼다는 점을 주민들은</p>
+											<p>가장 좋은 점으로 꼽았다.</p>
 										</div>
 									</div>
-									<div class="go-itv-full">
-										<p>인터뷰 영상 전체 보러가기</p>
+									<div class="spacer">
+										<div class="text-box">
+											<p>단순히 찾아오기 쉬워지고,</p>
+											<p>주차가 쉬워지고,</p>
+											<p>걷기 안전해지는 것을 넘어서</p>
+											<p>새롭게 쉬고 갈 수 있는</p>
+											<p>공간이 생겼다는 점을 주민들은</p>
+											<p>가장 좋은 점으로 꼽았다.</p>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-box">
+											<p>단순히 찾아오기 쉬워지고,</p>
+											<p>주차가 쉬워지고,</p>
+											<p>걷기 안전해지는 것을 넘어서</p>
+											<p>새롭게 쉬고 갈 수 있는</p>
+											<p>공간이 생겼다는 점을 주민들은</p>
+											<p>가장 좋은 점으로 꼽았다.</p>
+										</div>
+									</div>
+									<div class="spacer">
+										<div class="text-box">
+											<p>단순히 찾아오기 쉬워지고,</p>
+											<p>주차가 쉬워지고,</p>
+											<p>걷기 안전해지는 것을 넘어서</p>
+											<p>새롭게 쉬고 갈 수 있는</p>
+											<p>공간이 생겼다는 점을 주민들은</p>
+											<p>가장 좋은 점으로 꼽았다.</p>
+										</div>
 									</div>
 								</div>
+							</div>
+
+							<div class="para-holder">
+								<p class="strong center">“다음주엔 음악회가 있다고 하더라구요.<br/>그래서 또 놀러오려구요”</p>
+								<p>50여 년의 전통을 자랑하는 익산시 중앙동 중앙시장 입구의 간판이 푸근하다. 익산시는 중앙 및 창인동 일대 주차난을 해결하기 위해 대규모 주차장을 준비했다. 재래시장 활성화를 위해 익산시가 지난 1년 노력한 결과다.</p>
 							</div>
 
 						</div>
@@ -672,45 +825,21 @@
 							<div class="sec-title">
 								<p class="numb">04</p>
 								<p class="subtitle">네번째:</p>
-								<p class="title">주차장이 변하자 시장이 변했다 </p>
+								<p class="title">교통 지옥의 오명을 벗다</p>
 								<div class="title-as-img">
 									<img src="img/st--01.png" alt="재희씨의 이야기">
 								</div>
 							</div>
 
 							<div class="para-holder">
-								<p>12월 22일에는 상인회에서 ‘음악회’를 열었다. 주차장 옆으로 새로 마련된 공연장에서 비대면으로 음악회가 열렸다.시장 상인들과 익산의 다문화 가구에서 많은 참여가 있었다.</p>
-								<p>그 지역사회나 지역문화의 거점으로서 작동할 수 있는 가능성을 발견한 셈이다.</p>
-							</div>
-
-							<div class="tt-slider">
-								<div class="twentytwenty-container" id="TT_HOLDER_01">
-									<img src="img/drone-bf.jpg" alt="">
-									<img src="img/drone-aft.jpg" alt="">
-								</div>
-								<p class="caption">전북 익산 중앙시장 주차장 공사 전후 모습</p>
-							</div>
-							<div class="tt-slider">
-								<div class="twentytwenty-container" id="TT_HOLDER_02">
-									<img src="img/toilet-bf.jpg" alt="">
-									<img src="img/toilet-aft.jpg" alt="">
-								</div>
-								<p class="caption">전북 익산 중앙시장 화장실공간 공사 전후 모습</p>
-							</div>
-
-							<div class="para-holder">
-								<p>주차장 내의 영역도 재구성했다. 시장을 방문하는 특정 시간대가 끝나면 주차장이 한산해지는 시간대가 있는데, 그 유효시간대에는 새로운 이벤트가 열릴 수 있는 공간들을 확보했다.</p>
-								<p>그 지역사회나 지역문화의 거점으로서 작동할 수 있는 가능성을 발견한 셈이다. </p>
+								<p>이제 일호 광장은 더 이상 사고가 빈발하고 운전자들이 두려워하는 곳이 아니다. 사람중심의 안전한 광장으로 재탄생 했다.</p>
 							</div>
 
 							<div class="fixed-slider-area fs-a fs-a--3">
 								<div class="fixed-holder fixed-el">
 									<div class="fixed-graphic">
 										<div class="slider-item item--01">
-											<img src="img/graphic-sample.png" alt="">
-										</div>
-										<div class="slider-item item--02">
-											<img src="img/graphic-sample.png" alt="">
+											<img src="img/" alt="">
 										</div>
 									</div>
 								</div>
@@ -756,10 +885,9 @@
 							</div>
 
 							<div class="para-holder">
-								<p>마무리 텍스트. 1년 간의 공사 기간을 마치고 새로 탄생한 중앙시장에는 예전보다 많은 주민들이 찾아오고 있다.</p>
+								<p>1년 간의 공사 기간을 마치고 새로 탄생한 중앙시장에는 예전보다 많은 주민들이 찾아오고 있다.</p>
 								<p>가장 큰 변화는 무엇 하다는 것이다.  변한 것은 주차장 뿐이지만, 이것이 시장으로 사람들을 모았고, 주민들의 삶을 변화시켰다. 우리의 삶에 더 좋은 공간, 디자인이 필요한 이유다. 등등. </p>
-							</div>
-
+							</div>							
 						</div>
 
 					</div>
@@ -773,14 +901,19 @@
 				<div class="project-common-footer">
 					<div class="footer-wrap">
 						<div class="project-desc">
-							<p>공공디자인으로 행복한 공간 만들기 프로젝트 - 익산 중앙시장 편</p>
+							<p>공공디자인으로 행복한 공간 만들기 프로젝트 - 서귀포 일호광장 편</p>
 						</div>
 						<div class="conts-makers">
-							<p><span class="com_name">경향신문</span> 이재덕·김유진 ·최유진</p>
+							<p><span class="role">취재·제작</span><span class="com_name">경향신문</span> 이재덕·김유진 기자·석예다PD</p>
+							<p><span class="role">제작 지원</span><span class="com_name">한국공예디자인문화진흥원</span></p>
+							<p><span class="role">협력</span><span class="com_name">익산시, 사이트 앤 페이지</span></p>
 						</div>
 						<div class="brand-logo">
 							<div class="each-brand brand-kcdf"><img src="img/kcdf_logo_white.png" alt="한국공예디자인문화진흥원 로고"></div>
 							<div class="each-brand brand-kh"><img src="img/kh_logo_white.png" alt="경향신문 로고"></div>
+						</div>
+						<div class="footer-copy">
+							<p>CopyrightⓒThe Kyunghyang Shinmun, All rights reserved</p>
 						</div>
 					</div>
 				</div>

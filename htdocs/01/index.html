@@ -1,4 +1,5 @@
 <?php
+	$common_css = "../common_source/common.css?" . filemtime("../common_source/common.css");
 	$css = "css/style.css?" . filemtime("css/style.css");
 	$js = "js/custom.js?" . filemtime("js/custom.js");
 ?>
@@ -27,22 +28,23 @@
     <meta name="twitter:description" content="공행공 익산 중앙시장 편">
     <meta name="twitter:image" content="http://img.khan.co.kr/spko/storytelling/2020/publicdesign/01/fb_thumb.jpg">
 
-    <!-- 스타일시트 태그-->
+      <!-- 스타일시트 태그-->
 	<link rel="stylesheet" type="text/css" href="https://img.khan.co.kr/spko/storytelling/recothumb/digiReco.css" />
+ 	<link rel="stylesheet" type="text/css" href="<?php echo $common_css; ?>" />
  	<link rel="stylesheet" type="text/css" href="<?php echo $css; ?>" />
-    <link rel="stylesheet" type="text/css" href="css/twentytwenty.css"/>
+    <link rel="stylesheet" type="text/css" href="../common_source/twentytwenty.css"/>
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
 
     <!-- 스크립트 태그-->
 	<!--library-->
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/plugin/jquery-1.11.3.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="../common_source/jquery.easing.1.3.js"></script>
 	<!--library-->
 
 	<!--analystics-->
 	<script type="text/javascript" src="https://news.khan.co.kr/kh_storytelling/digiReco.js"></script>
-    <script type="text/javascript" src="js/jquery.event.move.js"></script>
-    <script type="text/javascript" src="js/jquery.twentytwenty.js"></script>
+    <script type="text/javascript" src="../common_source/jquery.event.move.js"></script>
+    <script type="text/javascript" src="../common_source/jquery.twentytwenty.js"></script>
 	<script src="https://unpkg.com/three@0.118.3/build/three.js"></script>
 
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/khan_analystics.js"></script>
@@ -198,7 +200,7 @@
 								<div class="line-vertical">
 									<div class="deco-curve deco-curve-box-side">
 										<svg id="CURVE_BOX_SIDE" class="intro-path-ani">
-											<path d="M 0,0 Q100,350 500,400"></path>
+											<path d="M 0,0 Q100,350 1000,500"></path>
 										</svg>
 									</div>
 								</div>
@@ -764,7 +766,7 @@
 							<p>공공디자인으로 행복한 공간 만들기 프로젝트 - 익산 중앙시장 편</p>
 						</div>
 						<div class="conts-makers">
-							<p><span class="role">취재·제작</span><span class="com_name">경향신문</span> 이재덕·김유진 기자·최유진PD</p>
+							<p><span class="role">취재·제작</span><span class="com_name">경향신문</span> 이재덕·김유진 기자·석예다PD</p>
 							<p><span class="role">제작 지원</span><span class="com_name">한국공예디자인문화진흥원</span></p>
 							<p><span class="role">협력</span><span class="com_name">익산시, 사이트 앤 페이지</span></p>
 						</div>
@@ -777,6 +779,7 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 			<!--// Container (E)-->
 			<div class="fixed-navi">

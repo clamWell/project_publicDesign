@@ -121,14 +121,17 @@ $(function(){
 				$fixedEl.addClass("fixed-el-fixed");
 				$fixedEl.removeClass("fixed-el-bottom");
 				this.sliderBody.addClass("sder-bck");
+				$(".nav-top").addClass("nav-hide");
 			}else if( this.videoStatus == "before"){
 				$fixedEl.removeClass("fixed-el-fixed");
 				$fixedEl.removeClass("fixed-el-bottom");
 				this.sliderBody.removeClass("sder-bck");
+				$(".nav-top").removeClass("nav-hide");
 			}else if( this.videoStatus == "after"){
 				$fixedEl.removeClass("fixed-el-fixed");
 				$fixedEl.addClass("fixed-el-bottom");
 				this.sliderBody.removeClass("sder-bck");
+				$(".nav-top").removeClass("nav-hide");
 			}
 		}
 	
