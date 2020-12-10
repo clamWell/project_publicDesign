@@ -121,17 +121,17 @@ $(function(){
 				$fixedEl.addClass("fixed-el-fixed");
 				$fixedEl.removeClass("fixed-el-bottom");
 				this.sliderBody.addClass("sder-bck");
-				$(".nav-top").addClass("nav-hide");
+				$(".nav-top").addClass("nav-black");
 			}else if( this.videoStatus == "before"){
 				$fixedEl.removeClass("fixed-el-fixed");
 				$fixedEl.removeClass("fixed-el-bottom");
 				this.sliderBody.removeClass("sder-bck");
-				$(".nav-top").removeClass("nav-hide");
+				$(".nav-top").removeClass("nav-black");
 			}else if( this.videoStatus == "after"){
 				$fixedEl.removeClass("fixed-el-fixed");
 				$fixedEl.addClass("fixed-el-bottom");
 				this.sliderBody.removeClass("sder-bck");
-				$(".nav-top").removeClass("nav-hide");
+				$(".nav-top").removeClass("nav-black");
 			}
 		}
 	
@@ -164,15 +164,6 @@ $(function(){
 							}
 						}
 					}
-
-					/*
-					if( now<eachStart+screenHeight){
-						scIndex = 1;
-					}else if(now>=eachStart+screenHeight&&now<eachStart+screenHeight*2){
-						scIndex = 2;
-					}else if(now>=eachStart+screenHeight*2){
-						scIndex = 3;
-					}*/
 
 					checkStageValue( Number(p+1)+"-stage-"+scIndex+"-para");
 				}else if( now >= eachEnd && now < $fs.eq(p+1).offset().top ){
@@ -248,7 +239,8 @@ $(function(){
 
 	function settingFixedElOpacity(){
 		$(".slider-item").css({"opacity":"0"})
-		$(".slider-item:first").css({"opacity":"1"})
+		//$(".slider-item:first").css({"opacity":"1"})
+		$(".item--01").css({"opacity":"1"})
 	};
 
 

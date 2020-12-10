@@ -35,7 +35,9 @@ img.img-shadow-bottom {  box-shadow: 20px 20px 0px #222;}
 
 
 .fs-a--1 .spacer .text-nobox { font-size: 18px; }
-.fs-a--1 .slider-item { transform: scale(1.5); transform-origin: left center;}
+
+/**최종 이미지 확정되면 PNG로 투명처리화해서 재 작업**/
+/*.fs-a--1 .slider-item { transform: scale(1.5); transform-origin: left center;}*/
 
 .para-with-beside-img { margin: 200px auto; }
 .para-with-beside-img > p { position: relative; z-index:1; }
@@ -92,7 +94,7 @@ img.img-shadow-bottom {  box-shadow: 20px 20px 0px #222;}
 .itv--03 .itv-video .video-tag { display:none;}
 .itv--03 .video-tag {  z-index: 2;position: relative;}
 .itv--03 .itv-video-line-deco {  top: 150px; bottom: auto;position: absolute;right: -100em;}
-.itv--03 .itv-point-text { bottom: -20%; right: -320px; position: absolute;}
+.itv--03 .itv-point-text { bottom: -20%; right: auto; left: 50%;  margin-left: -100px; position: absolute;}
 .itv--03 .itv-point-text .text-as-img {background: #111;}
 .itv--03 .go-itv-full {}
 .itv--03 .go-itv-full { left: 0;  margin-left: 0;}
@@ -130,6 +132,39 @@ img.img-shadow-bottom {  box-shadow: 20px 20px 0px #222;}
 @media screen and (max-width: 800px) {
 .img-pc { display:none; }
 .img-m { display:block; }
+
+.photo-temp { width: 100%; height: 500px; border: 1px solid #111; box-sizing: border-box; overflow: hidden;  } 
+.photo-temp > img { height: 100%; width: auto; } 
+.top-video-area .cover-text .text-holder > p {  font-size: 15.5px;}
+.photo-temp { display: none; }
+
+.top-video-area .top-video { display:block; } 
+
+#S01_01 {  box-sizing: border-box;  padding: 0px 15px; }
+
+.fixed-slider-horizon .fixed-graphic .slider-item img { width: 1000px;left: -100px; }
+
+.spacer .text-box { background: transparent;color: #fff; font-size: 16px; text-shadow: 1px 1px 2px #111;}
+.fixed-slider-area .fixed-el-fixed {  border: 0px solid #111;}
+
+.pulseicon-holder { width: 90%; }
+.pulse--1 {  top: 10%; right: 10%; }
+.pulse--2 {  top: 55%; left: 20%;}
+
+.itv--01 .itv-point-text { left:0; margin-left:0;bottom: -120px; }
+.itv--01 .itv-point-text .text-as-img { width: 320px; }
+.itv--01 .itv-video-line-deco { bottom: 50px; }
+
+.itv--02 .itv-point-text { left:0; margin-left:0;bottom: -120px;top: auto;  }
+.itv--02 .itv-point-text .text-as-img { width: 320px; }
+.itv--02 .itv-video-line-deco { bottom: 50px; }
+
+.itv--03 .itv-point-text .text-as-img { width: 320px; } 
+.itv--03 .itv-point-text {  left: 0; margin-left: 0;bottom: -80px; top: auto;}
+
+.fs-a--1 .spacer .text-nobox { font-size: 16px; }
+
+
 
 }
 

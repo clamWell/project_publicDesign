@@ -421,6 +421,51 @@ font-family: 'Noto Sans KR', 'notokr-regular', 'Apple SD Gothic Neo','맑은 고
 @media screen and (max-width: 800px) {
 .img-pc { display:none; }
 .img-m { display:block; }
+.video-pc { display:none; }
+.video-m { display:block; }
+.fixed-navi { display:none; }
+span.jump { display:block; }
+
+.nav-project-logo { padding: 5px 0px; width: 50px; }
+.nav-project-logo #PROJECT_LOGO { }
+.nav-project-logo #PROJECT_LOGO path { fill: #fff; }
+.container .story-header {  padding: 50px 0; }
+.story-top-feature { position: relative;width: 100%; box-sizing: border-box; padding: 0px 15px;}
+.top-video-area { position: relative;width: 100%;}
+.video-tag.video-shadow { box-shadow: 7px -7px 0px #222; }
+
+.story-title { padding: 20px 30px; }
+.story-title .title-sub { padding: 0; }
+.story-title .title-sub img { display:block; margin: 0 auto; width: 220px;}
+
+.sec-title { box-sizing: border-box;padding: 0px 15px;}
+.sec-title .title { font-size: 20px; line-height: 1.6; margin-top: 5px; }
+
+.para-holder {width: 100%;  margin: 40px auto; }
+.para-holder p  { font-size: 18px; line-height: 1.7; box-sizing: border-box;  padding: 0px 12px;}
+.para-docu p.sm { font-weight: normal; font-size: 15px; font-style: normal; line-height: 1.5;opacity: 0.6;}
+
+.img-holder {  margin: 40px auto;}
+.img-holder > img { width:100%; }
+.img-holder-full  { margin: 40px auto;}
+.img-holder .caption { font-family: 'Noto Sans KR', 'notokr-regular', 'Apple SD Gothic Neo','맑은 고딕';
+ font-size: 12px; width: 100%;box-sizing: border-box;padding: 0px 12px;word-break: keep-all; margin: 8px 0; } 
+img.img-shadow-bottom {  box-shadow: 7px 7px 0px #222; }
+
+.itv-holder {  width: 100%; box-sizing: border-box; padding: 0px 15px;  margin: 80px auto; margin-bottom: 180px;}
+.itv-holder .go-itv-full {bottom: auto; top: -30px; left: 0; margin-left: 0;  }
+.itv-holder .go-itv-full p { font-size: 13px; text-align: left; } 
+.itv-point-text .text-as-img img { width: 100%; }
+
+.spacer .text-nobox { font-size: 16px;  padding: 0px 30px;  }
+.fixed-slider-horizon .spacer .text-nobox .half { text-align: left; }
+.fixed-slider-img-full .spacer .text-nobox .half {  width: 100%; max-width: inherit;}
+.fixed-slider-img-full .spacer .text-nobox { font-size: 16px; }
+.spacer .text-nobox .half {  width: 100%;  padding-right: 0; }
+.spacer .text-nobox .text-in-img { width:100%; }
+.spacer .text-nobox .text-in-img img { width:100%; }
+
+.tt-slider { width: 100%; box-sizing: border-box;  padding: 0px 15px;}
 
 
 }
