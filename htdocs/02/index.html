@@ -2,7 +2,9 @@
 	$common_css = "../common_source/common.css?" . filemtime("../common_source/common.css");
 	$css = "css/style.css?" . filemtime("css/style.css");
 	$js = "js/custom.js?" . filemtime("js/custom.js");
+	$accData = "js/jeju_acc_list.js?" . filemtime("js/jeju_acc_list.js");
 ?>
+
 <!doctype html>
 <html>
 	<head>
@@ -45,7 +47,7 @@
 	<script type="text/javascript" src="https://news.khan.co.kr/kh_storytelling/digiReco.js"></script>
     <script type="text/javascript" src="../common_source/jquery.event.move.js"></script>
     <script type="text/javascript" src="../common_source/jquery.twentytwenty.js"></script>
-	<script src="https://unpkg.com/three@0.118.3/build/three.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
 
 	<script type="text/javascript" src="https://www.khan.co.kr/spko/js/khan_analystics.js"></script>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-79840639-2"></script>
@@ -184,7 +186,7 @@
 					<div class="story-header-line-deco">
 						<div class="deco-curve deco-curve-top-1">
 							<svg id="CURVE_TOP" class="intro-path-ani">
-								<path d="M 0,0 Q50, 200 600,300"></path>
+								<path d="M 300,0 Q-200, 600 -2000,800"></path>
 							</svg>
 						</div>
 						<div class="deco-curve deco-curve-top-2">
@@ -192,33 +194,19 @@
 								<path d="M 0,0 Q50,200 2000,500"></path>
 							</svg>
 						</div>
-						<div class="deco-line-box">
-							<div class="line-boxing">
-								<div class="line-horizontal">
-									<div class="line-body"></div>
-								</div>
-								<div class="line-vertical">
-									<div class="line-horizon"></div>
-								</div>
-								<div class="deco-curve deco-curve-bottom">
-									<svg id="CURVE_BOTTOM">
-										<path d="M 0,0 Q-100,350 -500,400"></path>
-									</svg>
-								</div>
-							</div>
-						</div>
+						
 					</div>
 					<div class="story-top-feature">
 						<div class="top-video-area">
 							<div class="top-video">
 								<div class="video-tag video-pc video-shadow video-border">
 									<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
-										<source src="video/intro-high.mp4" type="video/mp4">
+										<source src="video/intro_drone_jeju.mp4" type="video/mp4">
 									</video>
 								</div>
 								<div class="video-tag video-m video-shadow video-border">
 									<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video" poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg" id="V_JEJU">
-										<source src="video/jeju_title_m.mp4" type="video/mp4">
+										<source src="video/intro_drone_jeju.mp4" type="video/mp4">
 									</video>
 								</div>
 
@@ -238,11 +226,11 @@
 					<div class="story-title">
 						<div class="title-wrap">
 							<div class="title-sub">
-								<img src="img/page-subtitle-2.png" alt="공행공 서귀포 일호광장편">
+								<img src="img/project-title.png" alt="공행공 서귀포 일호광장편">
 							</div>
 							<div class="title-main">
 								<div class="title-svg">
-									<svg version="1.1" id="PAGE_TITLE_MAIN" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 226.4 22.3" xml:space="preserve">
+									<!--<svg version="1.1" id="PAGE_TITLE_MAIN" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 226.4 22.3" xml:space="preserve">
 										<path d="M2.9,17.3c-0.3,0.2-1.3,0-1.6-0.3c-0.6-0.5-0.6-1.4-0.3-1.8L1.3,15c0.3,0.3,0.9,0.5,1.7,0.6c0.3,0,0.8,0.1,1.4,0.1l-0.3-4.5
 										c0-0.6-0.2-0.9-0.7-1.1l0.1-0.4c0.6-0.4,1.6-0.4,2.5-0.2c1.2,0.3,1.6,0.7,1.3,1.7l0,4.4h1.2l-0.1-5.4c0-0.6-0.2-0.9-0.7-1.1L8,8.9
 										c0.6-0.4,1.7-0.4,2.6-0.2c1.2,0.3,1.7,0.7,1.4,1.7l-0.3,5.2l2.4-0.1c0.4,0,0.7,0,1-0.1c0.4-0.1,0.8-0.3,1-0.5
@@ -348,8 +336,95 @@
 											c0.6,0,0.9-0.4,1.3-1C222.3,16.8,223,16.4,223.8,16.3z"/>
 										<path d="M221.3,13.9c0-1.1,0-2.1-0.1-3.5l-0.1-7c0-1.1-0.4-1.5-0.8-1.6l0.1-0.4c0.5-0.4,1.8-0.4,2.8-0.2c1.1,0.3,2,0.7,2,1.5
 											l-0.2,7.2c0,1.3-0.3,3.3-0.9,4c-0.4,0.5-1,0.7-1.9,0.6C221.5,14.6,221.3,14.3,221.3,13.9z"/>
+									</svg>-->
+									<svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+										 y="0px" viewBox="0 0 250.5 27.9" style="enable-background:new 0 0 250.5 27.9;" xml:space="preserve">
+									<path d="M23.7,14.1c0,0.4-0.2,0.6-0.6,0.6H2.9c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6h9.5v-2.8c-3.8,0-5.5-0.8-5.5-3.2
+										c0-0.7,0.3-1.7,0.8-2.6H6.7c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6h12.4c0.4,0,0.6,0.2,0.6,0.6c0,0.4-0.2,0.6-0.6,0.6H8.9
+										c-0.6,1-0.8,1.9-0.8,2.6c0,1.5,1.1,2,4.5,2c2.9,0,5.1-0.3,7-0.6c0.3-0.1,0.6,0.2,0.6,0.6c0,0.3-0.2,0.6-0.5,0.6
+										c-1.7,0.3-3.6,0.5-6.1,0.6v2.8h9.5C23.5,13.5,23.7,13.7,23.7,14.1z"/>
+									<path d="M20.3,24.5c0.1,0.4-0.1,0.7-0.4,0.8c-2.3,0.5-6.1,0.6-8.2,0.6c-3.2,0-4.8-0.4-4.8-2.2c0-0.7,0.2-1.4,0.6-1.9H6.7
+										c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6c5.2,0,8.3,0.1,11.4,0c0.1-0.5,0.1-1.2,0.1-1.6c0-0.3,0-0.6-0.4-0.6
+										C15.4,18,10.9,18,7.2,18.2c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6c3.6-0.3,8.5-0.2,11,0.2c0.5,0.1,1.1,0.3,1.1,0.8
+										c0.2,1.1,0.1,2.1-0.1,3c-0.1,0.4-0.2,0.6-0.9,0.6c-3.1,0.1-6.5,0.1-9.5,0.1c-0.4,0.7-0.7,1.2-0.7,1.7c0,1,0.7,1.2,3.5,1.2
+										c2,0,5.8-0.1,8-0.6C19.9,24,20.3,24.1,20.3,24.5z"/>
+									<path d="M31,5.9c-3.2,0-5.6,2.3-5.6,6.2c0,4,2.4,6.2,5.6,6.2s5.6-2.3,5.6-6.2C36.5,8.2,34.2,5.9,31,5.9z M31,17.2
+										c-2.7,0-4.3-1.9-4.3-5.1c0-3.2,1.7-5,4.3-5s4.3,1.9,4.3,5C35.3,15.3,33.6,17.2,31,17.2z"/>
+									<path d="M46.1,12.1c0,0.4-0.2,0.6-0.6,0.6l-4,0V23c0,0.4-0.2,0.6-0.7,0.6c-0.3,0-0.6-0.2-0.6-0.6V3.5c0-0.4,0.2-0.6,0.7-0.6
+										c0.3,0,0.6,0.2,0.6,0.5v8.1l4,0C45.9,11.5,46.1,11.7,46.1,12.1z"/>
+									<path d="M63.9,24.2c0,0.4-0.2,0.5-0.5,0.6c-1.9,0.6-4.6,0.8-7.9,0.7c-4.4,0-5.9-1.9-5-6.6c0.1-0.4,0.3-0.6,0.7-0.6
+										c0.4,0,0.7,0.2,0.6,0.6c-0.9,4.3,0.3,5.5,3.7,5.5c3.5,0,5.6-0.2,7.7-0.7C63.6,23.5,63.9,23.8,63.9,24.2z"/>
+									<path d="M66.8,14.9h-9.5v-3.1c3.6-0.2,5.6-1.8,5.6-4.4c0-2.7-2.2-4.4-6.2-4.4s-6.2,1.7-6.2,4.4c0,2.6,1.9,4.2,5.6,4.4v3.1h-9.5
+										c-0.4,0-0.6,0.2-0.6,0.6c0,0.4,0.2,0.6,0.6,0.6h20.2c0.4,0,0.6-0.2,0.6-0.6C67.4,15.1,67.2,14.9,66.8,14.9z M51.7,7.3
+										c0-2,1.7-3.3,5-3.3s5,1.3,5,3.3s-1.6,3.2-5,3.2S51.7,9.3,51.7,7.3z"/>
+									<path d="M87.1,13.8c-3.6,0.9-10.5,1.3-14.1,1.3c-0.4,0-0.6-0.3-0.6-0.6c0-0.3,0.2-0.6,0.5-0.6c1.3,0,3.2-0.1,5.2-0.2V8.5
+										c0-0.4,0.2-0.6,0.6-0.6c0.4,0,0.6,0.2,0.6,0.6v5.1c2.7-0.2,5.6-0.5,7.5-1c0.5-0.1,0.8,0.1,0.8,0.5C87.6,13.5,87.5,13.7,87.1,13.8z"
+										/>
+									<path d="M75.1,4.7c0-0.4,0.2-0.6,0.6-0.6c1.1-0.2,2.9-0.3,5.1-0.3c3.3,0,4.7,0.9,4.7,3.2c0,1.1-0.5,2.9-1.3,4.2
+										c-0.2,0.3-0.3,0.5-0.7,0.5c-0.5,0-0.8-0.4-0.6-0.8c0.8-1.4,1.3-2.8,1.3-4c0-1.4-0.8-1.9-3.4-1.9c-2.1,0-3.9,0.1-5,0.3
+										C75.3,5.3,75.1,5.1,75.1,4.7z"/>
+									<path d="M94.6,9.5c0,0.4-0.2,0.6-0.6,0.6l-3.7,0v6.1c0,0.4-0.2,0.6-0.7,0.6c-0.3,0-0.6-0.2-0.6-0.6V3c0-0.4,0.2-0.6,0.7-0.6
+										c0.3,0,0.6,0.2,0.6,0.5V9l3.7,0C94.3,8.9,94.6,9.2,94.6,9.5z"/>
+									<path d="M96.6,15.3c-0.4,0.2-0.9-0.1-0.9-0.6c0-0.3,0.1-0.4,0.4-0.6c4-1.9,7.2-4.3,7.2-6.8c0-1.6-1.4-2-3.2-2.1
+										c-1.2,0-2.4,0.2-3.5,0.4c-0.4,0.1-0.7-0.2-0.7-0.6c0-0.4,0.2-0.6,0.5-0.6c1.2-0.3,2.6-0.4,3.7-0.4c2.7,0,4.4,0.9,4.4,3.3
+										c0,1-0.4,2-1,2.9c1.4,1.2,2.9,2.6,4,3.9c0.3,0.4,0.1,1-0.4,1c-0.3,0-0.4-0.1-0.6-0.3c-1.1-1.2-2.5-2.6-3.8-3.7
+										C101.3,12.7,99,14.1,96.6,15.3z"/>
+									<g>
+										<path d="M84.2,17.3c-3.7,0-6,1.6-6,4.3s2.3,4.3,6,4.3c3.7,0,5.9-1.6,5.9-4.3S87.9,17.3,84.2,17.3z M84.2,24.7
+											c-2.8,0-4.7-1.2-4.7-3.1c0-2,1.9-3.1,4.7-3.1s4.7,1.2,4.7,3.1C88.9,23.5,87,24.7,84.2,24.7z"/>
+										<path d="M106.1,16.9c-3.6,0-5.7,1.6-5.7,4.5s2.1,4.5,5.7,4.5c3.5,0,5.7-1.6,5.7-4.5S109.6,16.9,106.1,16.9z M106.1,24.7
+											c-2.7,0-4.5-1.1-4.5-3.3s1.8-3.3,4.5-3.3c2.6,0,4.4,1.1,4.4,3.3S108.7,24.7,106.1,24.7z"/>
+									</g>
+									<path d="M116.4,9c0,0.4-0.2,0.6-0.6,0.6l-4,0v5.8c0,0.4-0.2,0.6-0.7,0.6c-0.3,0-0.6-0.2-0.6-0.6V3c0-0.4,0.2-0.6,0.7-0.6
+										c0.3,0,0.6,0.2,0.6,0.5v5.6l4,0C116.2,8.4,116.4,8.6,116.4,9z"/>
+									<path d="M118.5,19.5c0.8,0,1.7,0.4,1.7,1.9s-0.6,3.1-2.3,4.1c-0.3,0.2-0.6,0.3-0.9-0.1c-0.2-0.2-0.2-0.5,0.1-0.7
+										c1.4-0.9,1.6-1.9,1.6-2.6c-0.1,0-0.2,0.1-0.6,0.1c-0.8,0-1.2-0.6-1.2-1.4C117,20.1,117.6,19.5,118.5,19.5z"/>
+									<path d="M129.3,10.2c-0.8,0-1.7-0.4-1.7-1.9c0-1.5,0.6-3.1,2.3-4.1c0.3-0.2,0.6-0.3,0.9,0.1c0.2,0.2,0.2,0.5-0.1,0.7
+										c-1.4,0.9-1.6,1.9-1.6,2.6c0.1,0,0.2-0.1,0.6-0.1c0.8,0,1.2,0.6,1.2,1.4S130.3,10.2,129.3,10.2z"/>
+									<path d="M138.6,3.9c-3,0-5.5,1.6-5.5,4.7s2.6,4.8,5.5,4.8c3,0,5.5-1.6,5.5-4.8S141.5,3.9,138.6,3.9z M138.6,12.2
+										c-2.4,0-4.3-1.3-4.3-3.6c0-2.3,1.8-3.5,4.3-3.5s4.3,1.2,4.3,3.5C142.8,11,141,12.2,138.6,12.2z"/>
+									<path d="M150.5,25.2c-1.9,0.4-4,0.7-7.1,0.7c-3.4,0-5.3-0.5-5.3-2.5c0-0.7,0.3-1.5,0.6-2.1h-0.7c-0.4,0-0.6-0.2-0.6-0.6
+										c0-0.4,0.2-0.6,0.6-0.6c4.5,0,7.8,0.1,10.4,0c0.1-0.6,0.2-1.7,0.1-2.2c0-0.3-0.2-0.4-0.6-0.4c-2-0.2-6.1-0.3-9.3-0.1
+										c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6c3.4-0.2,7.2-0.1,9.8,0.1c0.8,0.1,1.4,0.5,1.4,1c0.1,1.1,0,2.3-0.2,3.5
+										c-0.1,0.3-0.2,0.6-0.9,0.6c-2.5,0-6.2,0.1-8.5,0.1c-0.4,0.8-0.7,1.5-0.7,2c0.1,0.9,0.9,1.4,3.9,1.4c2.9,0,4.9-0.3,6.8-0.7
+										c0.3-0.1,0.7,0.1,0.7,0.4C151,24.8,150.9,25.1,150.5,25.2z"/>
+									<path d="M148.5,14V3c0-0.4,0.2-0.6,0.7-0.6c0.3,0,0.6,0.2,0.6,0.5v11c0,0.4-0.2,0.6-0.7,0.6C148.8,14.5,148.5,14.3,148.5,14z"/>
+									<path d="M155.6,7.3c0-0.4,0.2-0.6,0.6-0.6h15.1c0.4,0,0.6,0.2,0.6,0.6c0,0.4-0.2,0.6-0.6,0.6L156.2,8C155.8,8,155.6,7.7,155.6,7.3z"
+										/>
+									<path d="M173.9,20.5h-9.5v-3.1c3.4-0.2,5.1-1.6,5.1-4c0-2.5-1.9-4-5.7-4c-3.8,0-5.7,1.5-5.7,4c0,2.4,1.7,3.8,5.1,4v3.1h-9.5
+										c-0.4,0-0.6,0.2-0.6,0.6c0,0.4,0.2,0.6,0.6,0.6h20.2c0.4,0,0.6-0.2,0.6-0.6C174.5,20.7,174.3,20.5,173.9,20.5z M159.4,13.4
+										c0-1.7,1.3-2.8,4.4-2.8c3.1,0,4.4,1.1,4.4,2.8c0,1.7-1.3,2.8-4.4,2.8C160.7,16.3,159.4,15.2,159.4,13.4z"/>
+									<path d="M160.2,4.1c0-0.5,0.3-0.7,0.8-0.6c1.4,0.2,3.4,0.5,5.8,0.5c0.3,0,0.6,0.2,0.6,0.6c0,0.4-0.2,0.6-0.6,0.6
+										c-2.4,0-4.6-0.3-6.2-0.6C160.3,4.5,160.2,4.3,160.2,4.1z"/>
+									<path d="M176.4,3.7c0.8,0,1.7,0.4,1.7,1.9c0,1.5-0.6,3.1-2.3,4.1c-0.3,0.2-0.6,0.3-0.9-0.1c-0.2-0.2-0.2-0.5,0.1-0.7
+										c1.4-0.9,1.6-1.9,1.6-2.6c-0.1,0-0.2,0.1-0.6,0.1c-0.8,0-1.2-0.6-1.2-1.4C174.9,4.3,175.5,3.7,176.4,3.7z"/>
+									<path d="M196.7,18c0,0.3-0.1,0.6-0.5,0.7c-3.6,0.9-11,1.3-14.7,1.3c-0.4,0-0.6-0.3-0.6-0.6c0-0.3,0.2-0.6,0.5-0.6
+										c3.4,0,10.8-0.3,14.5-1.2C196.3,17.4,196.7,17.6,196.7,18z"/>
+									<path d="M188.7,4.6c-3.1,0-5.7,1.6-5.7,5s2.6,5.1,5.7,5.1c3.1,0,5.6-1.7,5.6-5.1S191.8,4.6,188.7,4.6z M188.7,13.5
+										c-2.5,0-4.4-1.4-4.4-3.8s1.9-3.8,4.4-3.8s4.4,1.3,4.4,3.8S191.2,13.5,188.7,13.5z"/>
+									<path d="M198.7,23.6c-0.3,0-0.6-0.2-0.6-0.6V3.5c0-0.4,0.2-0.6,0.7-0.6c0.3,0,0.6,0.2,0.6,0.5V23C199.4,23.4,199.1,23.6,198.7,23.6z
+										"/>
+									<path d="M210.3,14.3c0.1,0.4-0.1,0.6-0.4,0.7c-0.4,0.1-0.7-0.1-0.8-0.4c-0.6-3.1-0.7-6.9-0.7-9.7c0-0.4,0.3-0.6,0.7-0.6
+										c0.3,0,0.6,0.2,0.6,0.6C209.6,7.6,209.7,11.4,210.3,14.3z"/>
+									<path d="M218.7,4.8c-0.1-0.4-0.3-0.6-0.7-0.6c-0.4,0-0.7,0.3-0.6,0.7c0.2,1.8,0.3,3,0.3,4.7c-1-0.7-1.9-1.1-3.2-1.1
+										c-2.2,0-3.5,1.3-3.5,3.4c0,2.4,2,3.3,3.7,3.3c2.4,0,4.2-1.9,4.2-5.6C219,8.4,219,6.8,218.7,4.8z M214.7,14.1c-1.2,0-2.5-0.6-2.5-2.2
+										c0-1.2,0.8-2.2,2.2-2.2c1.3,0,2.2,0.4,3.2,1.1C217.4,13,216.2,14.1,214.7,14.1z"/>
+									<path d="M225.9,24.3c0,0.4-0.2,0.6-0.6,0.7c-2,0.4-4.1,0.6-6.8,0.6c-4.1,0-5.8-1.5-5.1-6.8c0.1-0.4,0.2-0.6,0.7-0.6
+										c0.4,0,0.7,0.2,0.6,0.6c-0.7,4.6,0.6,5.5,3.5,5.6c2.7,0.1,4.9-0.2,6.9-0.7C225.6,23.6,225.9,23.9,225.9,24.3z"/>
+									<path d="M223.9,12.4V8.6h-3.6c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6h3.6V3c0-0.4,0.2-0.6,0.7-0.6c0.3,0,0.6,0.2,0.6,0.5
+										v16.2c0,0.4-0.2,0.6-0.7,0.6c-0.3,0-0.6-0.2-0.6-0.6v-5.6h-3.6c-0.4,0-0.6-0.2-0.6-0.6c0-0.4,0.2-0.6,0.6-0.6H223.9z"/>
+									<path d="M235.5,10.7c-1.1,1.9-2.7,3.5-4.6,4.7c-0.3,0.2-0.8-0.1-0.9-0.5c0-0.3,0.1-0.5,0.3-0.6c3.2-2.3,5.3-5.2,5.6-9.6
+										c0-0.4,0.2-0.6,0.7-0.6c0.4,0,0.6,0.2,0.6,0.6c-0.1,1.8-0.5,3.4-1.2,4.8c1.6,1.1,3.8,2.9,5.2,4.5c0.4,0.5,0,1.1-0.4,1.1
+										c-0.2,0-0.4-0.1-0.6-0.3C239.1,13.5,237.1,11.8,235.5,10.7z"/>
+									<path d="M247.8,24.3c0,0.4-0.2,0.6-0.6,0.7c-2,0.4-4.1,0.6-6.8,0.6c-4.1,0-5.7-1.6-5.1-7.1c0.1-0.4,0.2-0.6,0.7-0.6
+										c0.4,0,0.7,0.2,0.6,0.6c-0.7,4.9,0.6,5.8,3.5,5.9c2.7,0.1,4.9-0.2,6.9-0.7C247.4,23.6,247.8,23.9,247.8,24.3z"/>
+									<path d="M245.7,18.9V3c0-0.4,0.2-0.6,0.7-0.6c0.3,0,0.6,0.2,0.6,0.5v15.9c0,0.4-0.2,0.6-0.7,0.6C246,19.4,245.7,19.2,245.7,18.9z"/>
 									</svg>
+
 								</div>
+							</div>
+							<div class="intro-desc">
+								<img src="img/intro-desc-img.png" alt="안전한 아름다운 정원으로">
 							</div>
 						</div>
 					</div>
@@ -363,22 +438,32 @@
 							<div class="sec-title">
 								<p class="numb">01</p>
 								<p class="subtitle">첫번째:</p>
-								<p class="title">그곳만 가면 정신이 없었다 </p>
+								<p class="title">추억의 광장이 지옥이 된 이유</p>
 								<div class="title-as-img">
-									<img src="img/st--01.png" alt="그곳만 가면 정신이 없었다 ">
+									<img src="img/st--01.png" alt="추억의 광장이 지옥이 된 이유">
 								</div>
 							</div>
 								
 							<div class="img-holder" id="S01_01">
-								<img src="img/s01-01.jpg" alt="표지판이미지" class="img-shadow-bottom">
+								<div class="back-path-deco bpd--01">
+									<div class="svg-holder">
+										<svg version="1.1" id="레이어_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+											 y="0px" viewBox="0 0 2001.1 657.3" style="enable-background:new 0 0 2001.1 657.3;" xml:space="preserve">
+											<path class="title-deco-path" d="M0.4,55.6c0,0,541-222,716,229c77,195,344,277,483,128s448,5,499,133s-182,76-56-51s310,108,358,162"/>
+										</svg>
+									</div>
+								</div>
+								<img src="img/s01-01-re.jpg" alt="일호광장 과거 사진" class="img-shadow-bottom">
 							</div>
 
-
+							<div class="text-as-img tai--01">
+								<img src="img/s01-img01-text.png" alt="장이 서는 날(4일, 9일)에는 정말 장관이었어. 저기 뒤쪽 길부터 선반내까지 천막이 이어졌지">
+							</div>
 							<div class="para-holder">
-								<p>유독 표지판이잘 안보이고, 주변이 복잡한 도로가 있다. 그곳이 심지어 출구가 6곳에 달하는 로터리라면 어떨까?</p>
-								<p>제주도 서귀포시 일호광장은 서귀포시 주민들에게 바로 그런 ‘지옥’ 같은 곳이었다.</p>
-								<p class="strong">“시에서 가장 많은 교통사고가 발생한 곳을 조사했는데, 여가 바로 1위였지요.” </p>
-								<p>서귀포시 일호광장은 1966년 서귀포시의 첫 광장이 된 역사성 깊은 장소로, 서귀포시민이 단합하는 구심점 역할을 해왔지만 현재 도내 교통사고 다발지점이라는 오명을 쓰고 광장의 공공성을 잃었다. 시민들의 안전한 도로환경 및 거리 조성에 대한 요구가 지속적으로 제기돼 왔다.</p>
+								<!-- <p class="strong">“장이 서는 날(4일, 9일)에는 정말 장관이었어. 저기 뒤쪽 길부터 선반내까지 천막이 이어졌지” </p> -->
+								<p>지난 12월 18일 제주도 서귀포 구도심에 있는 ‘일호광장’을 찾았다. 제주도의 첫번째 광장이라는 뜻이다. 1990년대 초까지 이곳엔 오일장이 섰고, 서귀포시청과 서귀포경찰서, 시외버스터미널 등이 모여있었다. </p>
+								<p>27살에 서귀포로 시집을 왔다는 황모 할머니(77)가 현재 왕복 6차선 도로가 된, 등기소 앞의 ‘일주도로’를 손으로 가리키며 말했다. </p>
+								<p>“겁나 번화하니 잘됐어. 좁긴 해도 골목골목마다 사람들이 내다 팔려고 좌판을 펴놨거든. 살 게 없는데도 구경가곤 했어.”</p>
 							</div>
 
 								
@@ -406,12 +491,37 @@
 								</div>
 							</div>
 
+
 							<div class="para-holder">
-								<p>문제는 도로 표지판과 변압기였다.</p>
-								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
-								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
-								<p>보행자가 지나가는 길이나 횡단보도도 따로 없어서 시장으로 이동하는 보행자,주민들과 주차 차량의 동선도 혼잡하게 뒤섞이곤 했다.</p>
+								<p>서귀포가 고향인 서귀포시청의 임우남 도시디자인팀장도 “일호광장을 볼 때마다 어머니와 함께 다녔던 오일장이 생각난다”고 했다. </p>
+								<p>“장날에 어머니는 참깨 한되를 보따리에 싸서 어린 저를 데리고 일호광장에 가셨어요. 곡물전에서 참깨를 돈과 바꾸고 나서 선반내 옆에 있는 오일장 함바집에 갔죠. 맹물국수 한 그룻 시켜서 먹고, 어머니는 제가 남긴 몇 가락 안되는 국수와 국물을 드시곤 했어요.”</p>
+								<p>서울의 신촌로터리보다는 조금 작고, 혜화로터리보다는 큰 면적의 일호광장은, 과거 행사 때마다 수 천명의 서귀포 시민들이 모여들었던 공간이다. 1981년 남제주군 서귀읍이 서귀포시로 승격됐을 때도 사람들은 광장을 가득 채웠다. </p>
 							</div>
+
+							<div class="img-holder img-holder-gallery">
+								<h4 class="img-title">일호광장의 과거 사진들</h4>
+								<div class="gallery-slider">
+									<div class="slider-wrapper">
+										<div class="slider-body">
+											<ul>
+												<li><img src="img/old_1.jpg" alt=""></li>
+												<li><img src="img/old_2.jpg" alt=""></li>
+												<li><img src="img/old_3.jpg" alt=""></li>
+												<li><img src="img/old_4.jpg" alt=""></li>
+												<li><img src="img/old_5.jpg" alt=""></li>
+												<li><img src="img/old_6.jpg" alt=""></li>
+												<li><img src="img/old_7.jpg" alt=""></li>
+												<li><img src="img/old_8.jpg" alt=""></li>
+											</ul>
+										</div>
+										<div class="arrow prev" id="prev"><img src="http://img.khan.co.kr/spko/storytelling/2020/underground/arrow-prev-black.png" alt="이전"></div>
+										<div class="arrow next" id="next"><img src="http://img.khan.co.kr/spko/storytelling/2020/underground/arrow-next-black.png" alt="다음"></div>
+									</div>
+								</div>
+								<p class="caption">좌우의 화살표를 클릭해 슬라이드를 넘겨보세요</p>
+							</div>
+
+
 
 							<div class="itv-holder itv--02">
 								<div class="itv-video video-mx-md video-border">
@@ -438,93 +548,37 @@
 							</div>
 
 							<div class="para-holder">
-								<p>문제는 도로 표지판과 변압기였다.</p>
-								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
-								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
-								<p>보행자가 지나가는 길이나 횡단보도도 따로 없어서 시장으로 이동하는 보행자,주민들과 주차 차량의 동선도 혼잡하게 뒤섞이곤 했다.</p>
+								<h2 class="in-para-title">직선도로와 로터리의 잘못된 만남, 광장은 지옥이 되었다</h2>
+								<p>조성이후 60여년이 지난 지금, 일호광장은 주민들에게 어떤 공간이 되었을까. 놀랍게도 일호광장의 또다른 이름은 교통지옥이었다.</p>
+								<p>시장과 터미널이 이전하면서 일호광장은 사람은 떠나가고 차량만 붐비는 공간으로 변모했다. 과거 시민들의 공간, 구심점이라는 공공성은 잃어버린지 오래다</p>
+								<p>교통량이 많아지면서 매연이 발생했고, 열섬현상은 심해졌다. 그러나 여전히 나무 그늘, 녹지공간은 부족해 주민들이 쉬다갈 공간은 없었다.</p>
 							</div>
 
-
-							<!--
-							<div class="fixed-slider-area fixed-slider-video-area">
-								<div class="fixed-holder fixed-el">
-									<div class="video-fullScreen">
-										<video loop="" autoplay="" muted="" playsinline="" preload="auto" class="video-js report-video"	poster="http://img.khan.co.kr/spko/storytelling/2020/climatechange/jeju_poster.jpg">
-											<source src="video/jeju_acc_video.mp4" type="video/mp4">
-										</video>
-									</div>
-								</div>
-								
-								<div class="flow-para spacer-holder">
-									<div class="spacer"></div>
-									<div class="spacer">
-										<div class="text-box">
-											<p>보행자가 지나가는 길이나</p>
-											<p>횡단보도도 따로 없어서</p>
-											<p>시장으로 이동하는 보행자,주민들과</p>
-											<p>주차 차량의 동선도 혼잡하게</p>
-											<p>뒤섞이곤 했다.</p>
-										</div>
-									</div>
-									<div class="spacer">
-										<div class="text-box">
-											<p>보행자가 지나가는 길이나</p>
-											<p>횡단보도도 따로 없어서</p>
-											<p>시장으로 이동하는 보행자,주민들과</p>
-											<p>주차 차량의 동선도 혼잡하게</p>
-											<p>뒤섞이곤 했다.</p>
-										</div>
-									</div>
-									<div class="spacer">
-										<div class="text-box">
-											<p>보행자가 지나가는 길이나</p>
-											<p>횡단보도도 따로 없어서</p>
-											<p>시장으로 이동하는 보행자,주민들과</p>
-											<p>주차 차량의 동선도 혼잡하게</p>
-											<p>뒤섞이곤 했다.</p>
-										</div>
-									</div>
-									<div class="spacer">
-										<div class="text-box">
-											<p>보행자가 지나가는 길이나</p>
-											<p>횡단보도도 따로 없어서</p>
-											<p>시장으로 이동하는 보행자,주민들과</p>
-											<p>주차 차량의 동선도 혼잡하게</p>
-											<p>뒤섞이곤 했다.</p>
-										</div>
-									</div>
-									<div class="spacer">
-										<div class="text-box">
-											<p>보행자가 지나가는 길이나</p>
-											<p>횡단보도도 따로 없어서</p>
-											<p>시장으로 이동하는 보행자,주민들과</p>
-											<p>주차 차량의 동선도 혼잡하게</p>
-											<p>뒤섞이곤 했다.</p>
-										</div>
-									</div>
-								</div>
-							</div>-->
+							<div class="para-holder">
+								<h2 class="in-para-title">사고다발지점 1위, 제주도에서 가장 운전하기 위험한 곳이라는 오명</h2>
+								<p>가장 큰 문제점은 바로 안전에 있었다. 공사를 거듭하면서 일호광장은 직선도로인 일주동로와 중앙 로터리가 교차되는 특이하고 복잡한 구조를 갖게 되었다. 이 구조로 인해 초보 운전자들은 물론 주민들에게도 제주도에서 운전하기 힘든 지역, 잦은 사고 다발지역으로 기억되게 되었다.</p>
+							</div>
 
 							<div class="fixed-slider-area fs-a fs-a--1 fixed-slider-horizon fs-black">
 								<div class="fixed-holder fixed-el">
 									<div class="fixed-graphic">
 										<div class="slider-item item--01">
-											<img src="img/s01-f-01.jpg" alt="">
+											<img src="img/s01-fixed-01.png" alt="">
 										</div>
 										<div class="slider-item item--02">
-											<img src="img/s01-f-02.jpg" alt="">
+											<img src="img/s01-fixed-02.png" alt="">
 										</div>
 										<div class="slider-item item--03">
-											<img src="img/s01-f-03.jpg" alt="">
+											<img src="img/s01-fixed-03.png" alt="">
 										</div>
 										<div class="slider-item item--04">
-											<img src="img/s01-f-04.jpg" alt="">
+											<img src="img/s01-fixed-04.png" alt="">
 										</div>
 										<div class="slider-item item--05">
-											<img src="img/s01-f-05.jpg" alt="">
+											<img src="img/s01-fixed-05.png" alt="">
 										</div>
 										<div class="slider-item item--06">
-											<img src="img/s01-f-06.jpg" alt="">
+											<img src="img/s01-fixed-06.png" alt="">
 										</div>
 									</div>
 								</div>
@@ -581,6 +635,11 @@
 								</div>
 							</div>
 
+							<div class="para-holder">
+								<p>서귀포경찰서가 집계한 교통사고현황에 따르면 지난 한해에만 이 구간에서 7건의 교통사고가 발생했고 올 들어서 현재까지 10건의 사고가 발생해 1명이 사망했다.</p>
+							</div>
+
+
 							<div class="para-holder para-with-beside-img">
 								<div class="para-beside-img para-beside-img-01">
 									<div class="img-dummy img-dummy-01">
@@ -604,6 +663,39 @@
 								<p>후문 횡단보도에서는 매년 크고 작은 교통사고가 끊이지 않는 곳이다. 이곳 주변에서 음식점을 운영하고 있는 김모씨(43)는 “신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
 								<p class="strong">“신호등도 없는데다가 여기가 동산이어서 자동차가 잘 보이지도 않아서 사실 보행자들이 위험한 것이 사실”이라고 말했다.</p>
 								<p>직진차로를 회전교차로로 오인시키는 표지판과, 교차로 모서리 부분의 시선을 방해하는 변압기가 있었다. 횡단보도도 인지가 싶지 않았다. 일호광장은 보행자 사고 비율이 높고, 사고가 발생하면 중상자 비율이 높은 지역이기도 했다.</p>
+							</div>
+							
+							<div class="acc-list-holder">
+								<div class="acc-list-wrap">
+									<h3>일호광장 교통사고 내역</h3>
+									<p class="info">출처: 도로교통안전공단/ 2017년~2019년</p>
+									<div class="legend">
+										<ul>
+											<li><span class="box box--1"></span>중상사고</li>
+											<li><span class="box box--2"></span>부상사고</li>
+											<li><span class="box box--3"></span>경상사고</li>
+										</ul>
+									</div>
+									<div class="acc-icon-box">
+										<div class="svg-holder">
+											<svg id="ACC_ICON_LIST">
+												<defs>
+													<filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"></feGaussianBlur><feMerge><feMergeNode in="coloredBlur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+													</filter>
+												</defs>
+											</svg>
+										</div>
+										<div class="tooltip">
+											<div class="tooltip-con">
+												<p class="acc-date"><span class="year">2017</span>년 <span class="month">2</span>월 <span class="date">17</span>일 발생</p>
+												<p class="acc-type"><span class="head">사고유형</span> <span class="acc-type-1">진입회전사고</span>, <span class="acc-type-2">차대차</span></p>
+											</div>
+											<div class="close-btn">×</div>
+										</div>
+									</div>
+
+								</div>
+								
 							</div>
 							
 							<div class="para-holder">
@@ -944,8 +1036,8 @@
 		</div>
 		<!--// After Loading (E)-->
 	</div>
+	<script type="text/javascript" src="<?php echo $accData; ?>"></script>
 	<script type="text/javascript" src="<?php echo $js; ?>"></script>
-	<script type="text/javascript" src="<?php echo $korTempDevi; ?>"></script>
 
 	<!-- imp 2020.08 YJ 추가-->
 	 <SCRIPT type="text/javaSCRIPT">

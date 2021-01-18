@@ -286,12 +286,194 @@ $(function(){
 	}
     /******** fragments mouse move animate ********/	
 
+	
+
+	/******** 교통사고 리스트 ********/
+	var accPath = "M28,22.3c0-0.1,0-0.2,0-0.3c0-0.1,0-0.2,0-0.2c0-0.3,0-0.5,0-0.8c0-0.9-0.2-1.7-0.4-2.6c-0.2-0.6-0.6-1.1-0.9-1.7c0-0.1-0.1-0.2-0.2-0.1c-0.1,0-0.1,0.1-0.1,0.2c0,0,0,0,0,0c-0.2,0.7-0.3,1.4-0.4,2.1c0,0.1,0,0.3-0.1,0.4c-0.1,0-0.2-0.2-0.3-0.3c-0.7-0.9-1.4-1.8-2.1-2.7c-0.2-0.2-0.2-0.2-0.4,0c-0.3,0.4-0.6,0.7-0.9,1.1c-0.7,1-1.5,1.9-2.2,2.9c0,0,0,0.1-0.1,0.1c0-0.1,0-0.1,0-0.2c0-1,0-2,0-3c0-0.7,0-1.5,0-2.2c0-0.3-0.1-0.3-0.3-0.2c-1.5,0.7-3,1.4-4.6,2.1c-0.1,0.1-0.3,0.1-0.5,0.2c0-0.1,0-0.1,0.1-0.1c0.8-1.5,1.6-3,2.4-4.5c0.1-0.2,0.1-0.3-0.2-0.3c-0.5-0.1-1-0.2-1.5-0.3c-0.5-0.1-1-0.2-1.5-0.3c-0.4-0.1-0.7-0.1-1.1-0.2c0.1-0.1,0.1-0.1,0.2-0.2c0.6-0.4,1.2-0.9,1.8-1.3c0.1,0,0.1-0.1,0.2-0.2c0-0.1-0.1-0.1-0.2-0.1c-0.5,0-1.1,0-1.6,0c-0.1,0-0.2,0-0.3,0c0,0-0.1,0-0.1,0c-0.1,0-0.1,0-0.2,0c-0.7,0-1.4,0-2.2,0c-0.2,0-0.5,0-0.7,0.1c-1.1,0.3-1.9,0.8-2.5,1.8c-0.5,0.8-1.1,1.7-1.6,2.5c-0.1,0.1-0.2,0.2-0.4,0.2c-0.7,0-1.3,0-2,0c-0.6,0-1,0.3-1.1,0.9c0,0.1,0,0.1,0,0.2c0,0.1,0,0.1,0,0.2c0,0.1,0,0.2,0,0.2c0,0.3,0.3,0.5,0.5,0.6c0.3,0.1,0.6,0.2,0.9,0.3c0.3,0.1,0.3,0.1,0.1,0.3c-0.3,0.4-0.6,0.9-0.7,1.4c-0.3,1-0.5,2-0.5,3c0,2,0,4.1,0,6.1c0,0.3,0,0.6,0,0.9c0,0.3,0.2,0.5,0.5,0.6c0.1,0,0.2,0,0.2,0c0.9,0,1.7,0,2.6,0c0.1,0,0.2,0,0.3,0c0.4-0.1,0.6-0.3,0.6-0.7c0-0.4,0-0.7,0-1.1c0-0.5,0-0.4,0.5-0.4c5.5,0,10.9,0,16.4,0c0.1,0,0.1,0,0.2,0c0.2,0,0.2,0.1,0.2,0.2c0,0.4,0,0.7,0,1.1c0,0.2,0,0.3,0.1,0.5c0.1,0.2,0.2,0.4,0.5,0.4c0.1,0,0.2,0,0.2,0c0.2,0,0.3,0,0.5,0c0,0,0.1,0,0.1,0c0.1,0,0.1,0,0.2,0c0.5,0,1,0,1.4,0c0.1,0,0.3,0,0.4,0c0.1,0,0.2,0,0.3,0c0.4-0.1,0.5-0.3,0.6-0.6c0-1.3,0-2.5,0-3.8C28,23.9,28,23.1,28,22.3z M8.7,21.1c0,0.3-0.3,0.7-0.8,0.9c-0.1,0-0.1,0-0.2,0c-0.4,0-0.8,0-1.2,0c-0.4,0-0.8,0-1.2,0c-0.7,0-1.3-0.6-1.4-1.2c-0.1-0.7,0.5-1.4,1.2-1.5c0.2,0,0.4,0,0.7,0c0.8,0.3,1.6,0.5,2.3,0.8C8.4,20.2,8.8,20.6,8.7,21.1z";
+
+	function makeAccListIcon(){
+		var data = JejuAccData,
+			svg_width =  ((isMobile==true)? (screenWidth-60) : 550),
+			svg_height = ((isMobile==true)? 400: 150),
+			margin = 10,
+			iconWidth = 30,
+			iconHeight= 30,
+			iconMargin = 3; 
+
+		var svglineMaxNum = parseInt( svg_width / (iconWidth + iconMargin));
+		var makeXcor = function(i) {
+			return (i % svglineMaxNum) * (iconWidth + iconMargin);
+		};
+		var makeYcor = function(i) {
+			return parseInt(i / svglineMaxNum) * (iconWidth + iconMargin);
+		};
+
+
+		var _iconSvg = d3.select("#ACC_ICON_LIST");
+		_iconSvg.style("width", svg_width)
+				.style("height", svg_height);
+		
+		var _yearLabel =  _iconSvg.append("g").attr("class","year-label-holder")
+								.attr("transform", "translate(-40, 22)");
+		var _iconGroup =  _iconSvg.append("g").attr("class", "icon-group");
+
+		var yPosTemp = 0,
+			countByYear = 0;
+
+		data.map(function(v,i,a){
+			var bef = i-1;
+			if(i==0){
+				countByYear ++;
+				_yearLabel.append("text")
+					.attr("x", "0")
+					.attr("y", "0")
+					.text("2017")
+					.attr("class", "year-label")
+			}else{
+				if( String(a[i].year) == String(a[bef].year) ){
+					countByYear ++;						
+				}else{
+					yPosTemp = yPosTemp + makeYcor(countByYear)+50; // 50은 연도 박스 간 마진
+					countByYear = 1;
+					_yearLabel.append("text")
+						.attr("x", "0")
+						.attr("y", yPosTemp+5)
+						.text( String(a[i].year))
+						.attr("class", "year-label")
+				}
+			}
+			a[i].iconXpos = makeXcor(countByYear-1);
+			a[i].iconYpos = makeYcor(countByYear-1)+yPosTemp;	
+		});
+		console.log(data);
+
+		var iconBox = _iconGroup.selectAll(".iconBox")
+			.data(data)
+			.enter().append("g")
+			.attr("class", "iconBox")
+			.attr("transform", function(d, i) {
+			  return "translate(" + d.iconXpos + "," + d.iconYpos + ")";
+			})
+			.style("width", iconWidth)
+			.style("height", iconHeight)
+			.style("opacity", "1")
+
+		var iconPath = iconBox.append("path")
+			.attr("class", "acc-icon")
+			.attr("d", accPath)
+			.attr("filter", "url(#glow)")
+			.style("stroke-width", "0")
+			//.style("stroke", "#691c0d")
+			.style("stroke", "#fff")
+			.style("fill-opacity", "0.8")
+			.style("fill", function(d){ 
+				//return d.color;
+				if(d.accScale == "중상사고"){
+					return "#f35839";
+				}else if(d.accScale == "부상사고"){
+					return "#e87e47";
+				}else if(d.accScale == "경상사고"){
+					return "#ecbe99";
+				}
+			});
+
+		var $tooltip = $(".acc-list-holder .tooltip");
+		$tooltip.css({"opacity":"0"});
+
+		iconPath.on("mouseover", function(d){
+			d3.select(this).style("stroke-width", "1")
+					.style("fill-opacity", "1");
+
+			$tooltip.find(".acc-date .year").html(d["year"]);
+			$tooltip.find(".acc-date .month").html(d["month"]);
+			$tooltip.find(".acc-date .date").html(d["date"]);
+			$tooltip.find(".acc-type-1").html(d["accType1"]);
+			$tooltip.find(".acc-type-2").html(d["accType2"]);
+			$tooltip.css({"opacity":"1"});
+			$tooltip.css({"display":"block"});
+			
+			var tooltipPos = d3.select(this.parentNode).attr("transform").replace("translate(", "").replace(")", "").split(",");
+			//console.log( tooltipPos[0], tooltipPos[1]);
+			$tooltip.css({"left": (Number(tooltipPos[0])+40) +"px"});
+			$tooltip.css({"top": (Number(tooltipPos[1])+30) +"px"});
+		
+
+		}).on("mouseout", function(d) {
+			d3.select(this).style("stroke-width", "0")
+					.style("fill-opacity", "0.8");
+
+			$tooltip.css({"opacity":"0"})
+			$tooltip.css({"display":"none"});
+
+		});
+
+	};
+	
+
+
+	/******** 교통사고 리스트 ********/
+
+
+/******** Gallery Slider ********/
+	var Slider = {},
+		baseWidth = null,
+		$Base = $(".slider-body ul li");
+ 	Slider.itemNumb = $Base.length;
+	Slider.setSlider = function(){
+		if(isMobile==true){
+			$(".gallery-slider .slider-wrapper").css({"height": (screenWidth*3/4)+"px"});
+			$Base.css({"width": $(".slider-body").width(), "height": (screenWidth*3/4)+"px"});
+			baseWidth = $(".slider-body").width();
+		}else{
+			baseWidth = $Base.width();
+		}	
+		$(".slider-body ul").css({"width":Slider.itemNumb*baseWidth });
+		$Base.eq(0).addClass("slider-item-on");
+	};
+
+	Slider.index = 0;
+	Slider.moveSlide = function(drct){
+		if(drct=="prev"){ // 이전
+			if(Slider.index==0){}
+			else if(Slider.index>0){
+				Slider.index -=1;
+				var moving = baseWidth*Slider.index;
+				$(".slider-body ul").stop().animate({"left":-moving}, 500,"easeOutCubic");
+				$Base.removeClass("slider-item-on");
+				$Base.eq(Slider.index).addClass("slider-item-on");
+			}
+
+		}else if(drct=="next"){ // 다음
+			if(Slider.index==Slider.itemNumb-1 ){}
+			else if(Slider.index<Slider.itemNumb-1 ){
+				Slider.index +=1;
+				var moving = baseWidth*Slider.index;
+				$(".slider-body ul").stop().animate({"left":-moving}, 500,"easeOutCubic");
+				$Base.removeClass("slider-item-on");
+				$Base.eq(Slider.index).addClass("slider-item-on");
+			}
+
+		}
+		$(".arrow").removeClass("arrow-block");
+	}
+	Slider.setSlider();
+
+	$(".arrow").on("click", function(e){
+		$(".arrow").addClass("arrow-block");
+		e.preventDefault();
+		var drct = $(this).attr("id");
+		Slider.moveSlide(drct);
+	});
+	/******** Gallery Slider ********/
 
 
 	/******** 모바일 전용 조정 ********/	
 	if(isMobile==true){
-		
+		$(".video-pc").html("");
+        $(".video-pc").hide();
 	}else{
+		$(".video-m").html("");
+        $(".video-m").hide();
       
 	}
 	/******** 모바일 전용 조정 ********/
@@ -308,6 +490,7 @@ $(function(){
 		settingFixedElPos();
 		settingFixedElOpacity();
 		setMouseMoveEventsAfterLoad();
+		makeAccListIcon();
 	}
 
 	$(".loading-page").fadeOut(1000, function(){
