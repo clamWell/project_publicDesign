@@ -2,7 +2,7 @@ $(function(){
 	var ieTest = false,
 		screenWidth = $(window).width(),
 		screenHeight = $(window).height(),
-		imgURL = "http://img.khan.co.kr/spko/storytelling/2020/massmedia/",
+		imgURL = "http://img.khan.co.kr/spko/storytelling/2020/publicdesign/",
 		isMobile = screenWidth <= 800 && true || false,
 		isNotebook = (screenWidth <= 1300 && screenHeight < 750) && true || false,
 		isMobileLandscape = ( screenWidth > 400 && screenWidth <= 800 && screenHeight < 450 ) && true || false;
@@ -361,10 +361,10 @@ $(function(){
 		var iconPath = iconBox.append("path")
 			.attr("class", "acc-icon")
 			.attr("d", accPath)
-			.attr("filter", "url(#glow)")
+			//.attr("filter", "url(#glow)")
 			.style("stroke-width", "0")
 			//.style("stroke", "#691c0d")
-			.style("stroke", "#fff")
+			.style("stroke", "#111")
 			.style("fill-opacity", "0.8")
 			.style("fill", function(d){ 
 				//return d.color;
@@ -374,6 +374,7 @@ $(function(){
 					return "#e87e47";
 				}else if(d.accScale == "경상사고"){
 					return "#ecbe99";
+				
 				}
 			});
 
@@ -414,7 +415,7 @@ $(function(){
 	/******** 교통사고 리스트 ********/
 
 
-/******** Gallery Slider ********/
+	/******** Gallery Slider ********/
 	var Slider = {},
 		baseWidth = null,
 		$Base = $(".slider-body ul li");
@@ -464,6 +465,12 @@ $(function(){
 		var drct = $(this).attr("id");
 		Slider.moveSlide(drct);
 	});
+
+	function sliderDefaultSetting(){
+		Slider.moveSlide("next");
+	};
+	sliderDefaultSetting();
+
 	/******** Gallery Slider ********/
 
 
@@ -481,6 +488,7 @@ $(function(){
 	function activataTw(){
 		$("#TT_HOLDER_03").twentytwenty();
 		$("#TT_HOLDER_04").twentytwenty();
+		$("#TT_HOLDER_05").twentytwenty();
 	};
 
 	function init(){
