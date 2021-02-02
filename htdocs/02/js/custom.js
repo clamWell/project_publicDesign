@@ -31,8 +31,18 @@ $(function(){
 		}
 	}
 
-    var ieUnder = false;
     function checkIe(){ 
+        var agent = navigator.userAgent.toLowerCase();
+        if ((navigator.appName == 'Netscape' && agent.indexOf('trident') != -1) || (agent.indexOf("msie") != -1)) {
+            ieTest = true;
+          } else {
+            ieTest = false;
+        }
+        console.log(ieTest);
+    };
+
+    var ieUnder = false;
+    function checkIeUnder(){ 
         var word; 
         if (navigator.userAgent.indexOf("MSIE") >= 0) {
             console.log("ieUNDER 10");
@@ -43,6 +53,7 @@ $(function(){
         }
     } 
     checkIe();
+    checkIeUnder();
 
 	var titleAniDone = false; 
 	function activTitlePathAni(){
@@ -294,11 +305,11 @@ $(function(){
 	function makeAccListIcon(){
 		var data = JejuAccData,
 			svg_width =  ((isMobile==true)? (screenWidth-60) : 550),
-			svg_height = ((isMobile==true)? 400: 150),
+			svg_height = ((isMobile==true)? 250: 150),
 			margin = 10,
 			iconWidth = 30,
 			iconHeight= 30,
-			iconMargin = 3; 
+			iconMargin =  ((isMobile==true)? 2: 3); 
 
 		var svglineMaxNum = parseInt( svg_width / (iconWidth + iconMargin));
 		var makeXcor = function(i) {
@@ -333,7 +344,11 @@ $(function(){
 				if( String(a[i].year) == String(a[bef].year) ){
 					countByYear ++;						
 				}else{
-					yPosTemp = yPosTemp + makeYcor(countByYear)+50; // 50은 연도 박스 간 마진
+					if(isMobile==true){
+                        yPosTemp = yPosTemp + makeYcor(countByYear)+30; 
+                    }else{
+                        yPosTemp = yPosTemp + makeYcor(countByYear)+50; 
+                    }
 					countByYear = 1;
 					_yearLabel.append("text")
 						.attr("x", "0")
@@ -369,11 +384,11 @@ $(function(){
 			.style("fill", function(d){ 
 				//return d.color;
 				if(d.accScale == "중상사고"){
-					return "#f35839";
+					return "#db2400";
 				}else if(d.accScale == "부상사고"){
-					return "#e87e47";
+					return "#f25300";
 				}else if(d.accScale == "경상사고"){
-					return "#ecbe99";
+					return "#e3a26d";
 				
 				}
 			});
@@ -422,8 +437,10 @@ $(function(){
  	Slider.itemNumb = $Base.length;
 	Slider.setSlider = function(){
 		if(isMobile==true){
-			$(".gallery-slider .slider-wrapper").css({"height": (screenWidth*3/4)+"px"});
-			$Base.css({"width": $(".slider-body").width(), "height": (screenWidth*3/4)+"px"});
+			var _itemHeight = (535/800*screenWidth);
+			console.log(_itemHeight);
+			$(".gallery-slider .slider-wrapper").css({"height": _itemHeight+"px"});
+			$Base.css({"width": $(".slider-body").width(), "height": _itemHeight+"px"});
 			baseWidth = $(".slider-body").width();
 		}else{
 			baseWidth = $Base.width();
@@ -474,14 +491,34 @@ $(function(){
 	/******** Gallery Slider ********/
 
 
-	/******** 모바일 전용 조정 ********/	
+	/******** 모바일 전용 조정 ********/
+
 	if(isMobile==true){
 		$(".video-pc").html("");
         $(".video-pc").hide();
+		$(".title-svg-pc").html("");
+		$("#S01_01").find("img").attr("src", "img/s01-01-m.jpg");
+        $(".img-dummy-01").html("");
+        $("#S02_05").find("img").attr("src", "img/s02-05-2-m.jpg");
+        $("#S02_06").find("img").attr("src", "img/s02-06-m.jpg");
+        $("#S03_09").find("img").attr("src", "img/s03-09-m.jpg");
+        avoid100vh();
+        $(".video-boxing iframe").css({"width":$(".blank img").width(),"height":$(".blank img").height()});
 	}else{
-		$(".video-m").html("");
-        $(".video-m").hide();
-      
+         if(ieTest==true){
+            $(".top-video").find(".video-m").html("");
+            $(".top-video").find(".video-m").hide();
+            $(".itv--ie-change").find(".video-tag").html("");
+            $(".itv--ie-change").find(".video-tag").hide();
+            $(".itv--ie-change").find(".video-photo-temp").show();
+            $(".fs-a--2").find(".video-m").html("");
+            $(".fs-a--2").find(".video-m").hide();
+
+        }else{
+            $(".video-m").html("");
+            $(".video-m").hide();   
+        }
+		$(".title-svg-m").html("");
 	}
 	/******** 모바일 전용 조정 ********/
 
@@ -491,14 +528,24 @@ $(function(){
 		$("#TT_HOLDER_05").twentytwenty();
 	};
 
+	function avoid100vh(){
+		$(".spacer").height(screenHeight);
+		$(".fixed-slider-area .fixed-el").height(screenHeight);
+		$(".video-fullScreen").height(screenHeight);
+	}
+
 	function init(){
 		activTitlePathAni();
 		activeIntroPathAni();
 		activataTw();
-		settingFixedElPos();
+		//settingFixedElPos();
 		settingFixedElOpacity();
-		setMouseMoveEventsAfterLoad();
+        if(isMobile==false&&ieTest==false){
+            setMouseMoveEventsAfterLoad();
+        }
 		makeAccListIcon();
+		
+		$("body").removeClass("fixed");
 	}
 
 	$(".loading-page").fadeOut(1000, function(){
