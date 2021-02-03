@@ -491,6 +491,62 @@ $(function(){
 	/******** Gallery Slider ********/
 
 
+	/******** Map Switching *******/ 
+	var locaZoomSetting;
+	if(isMobile==true){
+		locaZoomSetting = ["scale(1.1) translate(0px, 20px)","scale(1) translate(0px, 20px)"];
+	}else{
+		locaZoomSetting = ["scale(1.2) translate(0px, 20px)","scale(1.2) translate(40px, 50px)"];
+	}
+
+	function swtichingAreaDefaultSetting(){
+		SwitchLoca(0);
+	};
+	
+	function SwitchLoca(loc){
+		if(loc==0){
+			$(".loca--2").css({"opacity":"0"});
+			$(".btn-loca1").addClass("on");
+			$(".btn-loca2").removeClass("on");
+			$(".map-zoom").css("transform", locaZoomSetting[0]);
+		}else{
+			$(".loca--2").css({"opacity":"1"});
+			$(".btn-loca1").removeClass("on");
+			$(".btn-loca2").addClass("on");
+			$(".map-zoom").css("transform", locaZoomSetting[1]);
+		}
+		switchBfAft(0);
+	}
+
+	function switchBfAft(type){
+		if(type==0){
+			$(".each-loca-map .map-aft").stop().animate({"opacity":"0"},500);
+			$(".swtich-btn-bf").addClass("on");
+			$(".swtich-btn-aft").removeClass("on");
+		}else{
+			$(".each-loca-map .map-aft").stop().animate({"opacity":"1"},500);
+			$(".swtich-btn-bf").removeClass("on");
+			$(".swtich-btn-aft").addClass("on");
+		}
+	}
+
+	$(".location-btn-holder ul li").on("click", function(e){
+		e.preventDefault();
+		var idx = $(this).index();
+		SwitchLoca(idx);
+	});
+	$(".bf-aft-btn-holder ul li").on("click", function(e){
+		e.preventDefault();
+		var idx = $(this).index();
+		switchBfAft(idx);
+	});
+	swtichingAreaDefaultSetting();
+
+	
+	/******** Map Switching *******/ 
+
+
+
 	/******** 모바일 전용 조정 ********/
 
 	if(isMobile==true){
@@ -504,6 +560,11 @@ $(function(){
         $("#S03_09").find("img").attr("src", "img/s03-09-m.jpg");
         avoid100vh();
         $(".video-boxing iframe").css({"width":$(".blank img").width(),"height":$(".blank img").height()});
+		$(".loca--1 .map-bf").find("img").attr("src", "img/map-loca-1-bf-m.png");
+		$(".loca--1 .map-aft").find("img").attr("src", "img/map-loca-1-aft-m.png");
+		$(".loca--2 .map-bf").find("img").attr("src", "img/map-loca-2-bf-m.png");
+		$(".loca--2 .map-aft").find("img").attr("src", "img/map-loca-2-aft-m.png");
+
 	}else{
          if(ieTest==true){
             $(".top-video").find(".video-m").html("");
@@ -537,14 +598,13 @@ $(function(){
 	function init(){
 		activTitlePathAni();
 		activeIntroPathAni();
-		activataTw();
 		//settingFixedElPos();
 		settingFixedElOpacity();
         if(isMobile==false&&ieTest==false){
             setMouseMoveEventsAfterLoad();
         }
 		makeAccListIcon();
-		
+		activataTw();
 		$("body").removeClass("fixed");
 	}
 
