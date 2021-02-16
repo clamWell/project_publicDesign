@@ -2,7 +2,7 @@ $(function(){
 	var ieTest = false,
 		screenWidth = $(window).width(),
 		screenHeight = $(window).height(),
-		imgURL = "http://img.khan.co.kr/spko/storytelling/2020/publicdesign/",
+		imgURL = "http://img.khan.co.kr/spko/storytelling/2021/publicdesign/jeju/",
 		isMobile = screenWidth <= 800 && true || false,
 		isNotebook = (screenWidth <= 1300 && screenHeight < 750) && true || false,
 		isMobileLandscape = ( screenWidth > 400 && screenWidth <= 800 && screenHeight < 450 ) && true || false;
@@ -38,14 +38,14 @@ $(function(){
           } else {
             ieTest = false;
         }
-        console.log(ieTest);
+       // console.log(ieTest);
     };
 
     var ieUnder = false;
     function checkIeUnder(){ 
         var word; 
         if (navigator.userAgent.indexOf("MSIE") >= 0) {
-            console.log("ieUNDER 10");
+            //console.log("ieUNDER 10");
             ieUnder = true;
             return true;
         }else {
@@ -195,20 +195,20 @@ $(function(){
 	function adjustStage(s){
 		if(typeof(s)=="string"){
 			if(s=="bf"){
-				console.log("fsa전");
+				//console.log("fsa전");
 				$fs.find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.find(".fixed-el").removeClass("fixed-el-bottom");
 
 				$(".nav-top").removeClass("nav-black");
 			}else if(s=="aft"){
-				console.log("fsa이후");
+				//console.log("fsa이후");
 				$fs.find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.find(".fixed-el").addClass("fixed-el-bottom");
 
 				$(".nav-top").removeClass("nav-black");
 			}else if(s.indexOf("btw")!==-1){
 				var ts = s.split("-");
-				console.log(ts[0]+" 사이 "+ts[2]);
+				//console.log(ts[0]+" 사이 "+ts[2]);
 				$fs.eq(ts[0]).find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.eq(ts[0]).find(".fixed-el").addClass("fixed-el-bottom");
 				$fs.eq(ts[2]).find(".fixed-el").removeClass("fixed-el-fixed");
@@ -217,7 +217,7 @@ $(function(){
 				$(".nav-top").removeClass("nav-black");
 			}else if(s.indexOf("stage")!==-1){
 				var ts = s.split("-");
-				console.log(ts[0]+" 번째 stage의 "+ts[2]+"번째 문단");
+				//console.log(ts[0]+" 번째 stage의 "+ts[2]+"번째 문단");
 				$fs.eq(ts[0]-1).find(".fixed-el").addClass("fixed-el-fixed");
 				$fs.eq(ts[0]-1).find(".fixed-el").removeClass("fixed-el-bottom");
 				
@@ -244,7 +244,7 @@ $(function(){
 		$horizon_img.each(function(){
 			var y = screenHeight*0.5 - $(this).height()*0.5;
 			$(this).css({"top": y+"px" });
-			console.log(y);
+			//console.log(y);
 		})
 	}
 
@@ -360,7 +360,7 @@ $(function(){
 			a[i].iconXpos = makeXcor(countByYear-1);
 			a[i].iconYpos = makeYcor(countByYear-1)+yPosTemp;	
 		});
-		console.log(data);
+		//console.log(data);
 
 		var iconBox = _iconGroup.selectAll(".iconBox")
 			.data(data)
@@ -438,7 +438,7 @@ $(function(){
 	Slider.setSlider = function(){
 		if(isMobile==true){
 			var _itemHeight = (535/800*screenWidth);
-			console.log(_itemHeight);
+			//console.log(_itemHeight);
 			$(".gallery-slider .slider-wrapper").css({"height": _itemHeight+"px"});
 			$Base.css({"width": $(".slider-body").width(), "height": _itemHeight+"px"});
 			baseWidth = $(".slider-body").width();
@@ -553,17 +553,17 @@ $(function(){
 		$(".video-pc").html("");
         $(".video-pc").hide();
 		$(".title-svg-pc").html("");
-		$("#S01_01").find("img").attr("src", "img/s01-01-m.jpg");
+		$("#S01_01").find("img").attr("src", imgURL+"s01-01-m.jpg");
         $(".img-dummy-01").html("");
-        $("#S02_05").find("img").attr("src", "img/s02-05-2-m.jpg");
-        $("#S02_06").find("img").attr("src", "img/s02-06-m.jpg");
-        $("#S03_09").find("img").attr("src", "img/s03-09-m.jpg");
+        $("#S02_05").find("img").attr("src", imgURL+"s02-05-2-m.jpg");
+        $("#S02_06").find("img").attr("src", imgURL+"s02-06-m.jpg");
+        $("#S03_09").find("img").attr("src", imgURL+"s03-09-m.jpg");
         avoid100vh();
-        $(".video-boxing iframe").css({"width":$(".blank img").width(),"height":$(".blank img").height()});
-		$(".loca--1 .map-bf").find("img").attr("src", "img/map-loca-1-bf-m.png");
-		$(".loca--1 .map-aft").find("img").attr("src", "img/map-loca-1-aft-m.png");
-		$(".loca--2 .map-bf").find("img").attr("src", "img/map-loca-2-bf-m.png");
-		$(".loca--2 .map-aft").find("img").attr("src", "img/map-loca-2-aft-m.png");
+        $(".video-boxing iframe").css({"width":$(".blank img").width(),"height": (14*(screenWidth-30)/25 )});
+		$(".loca--1 .map-bf").find("img").attr("src", imgURL+"map-loca-1-bf-m.png");
+		$(".loca--1 .map-aft").find("img").attr("src", imgURL+"map-loca-1-aft-m.png");
+		$(".loca--2 .map-bf").find("img").attr("src", imgURL+"map-loca-2-bf-m.png");
+		$(".loca--2 .map-aft").find("img").attr("src", imgURL+"map-loca-2-aft-m.png");
 
 	}else{
          if(ieTest==true){

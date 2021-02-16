@@ -206,7 +206,7 @@ animation: dash 5s infinite linear alternate; }
 .nav-wrap.nav-with-bg {  background: #efeadc;  }
 
 /* .nav-black #PROJECT_LOGO path { stroke: #fff; } */
-.nav-black .nav-wrap.nav-with-bg { background:#111;}
+.nav-black .nav-wrap.nav-with-bg { background:#111; backgroun}
 /* project top navigation  */
 
 /* stroy intro  */
@@ -370,6 +370,8 @@ box-sizing: border-box;padding: 5px 25px;  background: #fff; background:#fff3e5;
 .project-common-footer .conts-makers p { font-size: 14px; margin: 2px 0; color:#fff;  color: #a9a8a5; }
 .project-common-footer .conts-makers p .role { margin-right: 10px;font-weight:bold; }
 .project-common-footer .conts-makers p .com_name { }
+.project-common-footer .conts-makers p a { color: #a9a8a5; }
+.project-common-footer .conts-makers p a:hover { text-decoration: underline; }
 .project-common-footer .brand-logo { margin-top: 40px; }
 .project-common-footer .brand-logo .each-brand { margin: 10px 0;}
 .project-common-footer .brand-logo .each-brand img {  }

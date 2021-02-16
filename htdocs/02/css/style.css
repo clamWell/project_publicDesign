@@ -14,14 +14,14 @@
 .story-title .title-sub img { display:block; margin: 0 auto; }
 .intro-desc {margin-top: 15px; } 
 .intro-desc img { display:block; margin: 0 auto;} 
-
+.top-video-area .cover-text .text-holder { display:none;}
 .back-path-deco { position: absolute;width: 100%; }
 .title-deco-path { fill:none; stroke: #111; stroke-width:1;stroke-miterlimit:10; }
 .back-path-deco svg {   overflow: visible; width: 100%; }
 .bpd--01 { top: 100px; }
 .bpd--02 { top: 250px; } 
 
-#S01_01 { margin: 0 auto; }
+#S01_01 { margin: 0 auto; margin-bottom: 100px; }
 img.img-shadow-bottom {  box-shadow: 20px 20px 0px #222;}
 
 .text-as-img { margin: 70px auto;max-width: 550px;  box-sizing: border-box;  padding: 10px;}
@@ -92,8 +92,8 @@ transform: rotate(4deg) translate(0px, 0px); -webkit-transform: rotate(4deg) tra
 .itv--02 .itv-point-text { top: 40%; right: -320px; position: absolute; z-index: 3;}
 .itv--02 .itv-point-text .text-as-img {background: #f5e7d9;  box-shadow: 10px 10px 0px #222;}
 .itv--02 .go-itv-full {}
-.photo-fixed { background: url("../img/bottom-full-photo-2.jpg") no-repeat; height:450px; 
-background: url("../img/droneshot-with-sea3.jpg") no-repeat; background-size: cover;  background-attachment: fixed;  background-position: top center; }
+.photo-fixed { background: url("http://img.khan.co.kr/spko/storytelling/2021/publicdesign/jeju/bottom-full-photo-2.jpg") no-repeat; height:450px; 
+background: url("http://img.khan.co.kr/spko/storytelling/2021/publicdesign/jeju/droneshot-with-sea3.jpg") no-repeat; background-size: cover;  background-attachment: fixed;  background-position: top center; }
 .itv--02 .video-photo-temp { display:none;}
 
 .fs-a--1 { margin-top: 300px; margin-bottom: 300px;}
@@ -101,7 +101,8 @@ background: url("../img/droneshot-with-sea3.jpg") no-repeat; background-size: co
 .fs-a--1 .fixed-el-fixed { background: #f5e7d9; }
 .fs-a--1 .fixed-graphic .slider-item img { max-width:1000px; display: block; margin: 0 auto; 
  width: 1000px; top: 50%; margin-top: -400px;}
-.fs-a--1  .spacer .text-nobox .half { background:#fff; padding: 20px;border: 1px solid #111; }
+.fs-a--1 .spacer .text-nobox .half { background:#fff; padding: 20px;border: 1px solid #111; }
+
 .spacer .text-nobox p { margin: 7px auto; }
 
 #S02_05 img {border: 1px solid #111; box-shadow: 10px 10px 0px #111; box-shadow: 10px 10px 0px #d8c5b3;}
@@ -502,7 +503,7 @@ img.img-shadow-bottom {  box-shadow: 10px 10px 0px #222;}
 .video-holder .temp { font-size: 13px; }
 .bottom-video-title  { width:85%; max-width: 300px; margin: 20px auto;  top: 0;margin-bottom: 10px;}
 
-.photo-fixed {background: url("../img/s01-01-m.jpg"); height:200px; 
+.photo-fixed {background: url("http://img.khan.co.kr/spko/storytelling/2021/publicdesign/jeju/s01-01-m.jpg"); height:200px; 
 background-size: auto 500px;background-position: bottom center;    background-attachment: fixed;}
 
 }
