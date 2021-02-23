@@ -152,13 +152,19 @@ $(function(){
 					eachEnd = $fs.eq(p).offset().top+$fs.eq(p).height()-screenHeight;
 				if( now >= eachStart && now < eachEnd ){
 					var scIndex = 0;
+					var paraLength =  $fs.eq(p).find(".spacer").length-1;
 					if( now<eachStart+screenHeight){
 						scIndex = 1;
-					}else if(now>=eachStart+screenHeight&&now<eachStart+screenHeight*2){
-						scIndex = 2;
-					}else if(now>=eachStart+screenHeight*2){
-						scIndex = 3;
+					}else if(now>=eachStart+screenHeight*(paraLength-1)){
+						scIndex = paraLength; 
+					}else{
+						for(l=1;l<paraLength-1;l++){ 
+							if(  now >= eachStart+screenHeight * (l) && now < eachStart+screenHeight * ( l+1) ){
+								scIndex = l+1;
+							}
+						}
 					}
+
 					checkStageValue( Number(p+1)+"-stage-"+scIndex+"-para");
 				}else if( now >= eachEnd && now < $fs.eq(p+1).offset().top ){
 					checkStageValue(p+"-btw-"+Number(p+1));
@@ -181,10 +187,14 @@ $(function(){
 				console.log("fsa전");
 				$fs.find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.find(".fixed-el").removeClass("fixed-el-bottom");
+
+				$(".nav-top").removeClass("nav-black");
 			}else if(s=="aft"){
 				console.log("fsa이후");
 				$fs.find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.find(".fixed-el").addClass("fixed-el-bottom");
+
+				$(".nav-top").removeClass("nav-black");
 			}else if(s.indexOf("btw")!==-1){
 				var ts = s.split("-");
 				console.log(ts[0]+" 사이 "+ts[2]);
@@ -193,21 +203,46 @@ $(function(){
 				$fs.eq(ts[2]).find(".fixed-el").removeClass("fixed-el-fixed");
 				$fs.eq(ts[2]).find(".fixed-el").removeClass("fixed-el-bottom");
 
+				$(".nav-top").removeClass("nav-black");
 			}else if(s.indexOf("stage")!==-1){
 				var ts = s.split("-");
 				console.log(ts[0]+" 번째 stage의 "+ts[2]+"번째 문단");
 				$fs.eq(ts[0]-1).find(".fixed-el").addClass("fixed-el-fixed");
 				$fs.eq(ts[0]-1).find(".fixed-el").removeClass("fixed-el-bottom");
 				
+				/*
 				if(ts[2]==2){
 					$fs.eq(ts[0]-1).find(".fixed-el").find(".item--02").fadeIn();
 				}else if(ts[2]==1){
 					$fs.eq(ts[0]-1).find(".fixed-el").find(".item--02").fadeOut();
-				}
-				
+				}*/
+				var fi_el_index = (ts[2]*1)-1;
+				var $fi_els = $fs.eq(ts[0]-1).find(".slider-item");
+
+				$fs.eq(ts[0]-1).find(".slider-item:not(:eq("+fi_el_index+"))").stop().animate({"opacity":"0"}, 1000);
+				$fi_els.eq(fi_el_index).stop().animate({"opacity":"1"}, 500);
+
+				$(".nav-top").addClass("nav-black");
+
 			}
 		}
 	};	
+
+	function settingFixedElPos(){
+		var $horizon_img = $(".slider-item img");
+		$horizon_img.each(function(){
+			var y = screenHeight*0.5 - $(this).height()*0.5;
+			$(this).css({"top": y+"px" });
+			console.log(y);
+		})
+	}
+
+	function settingFixedElOpacity(){
+		$(".slider-item").css({"opacity":"0"})
+		//$(".slider-item:first").css({"opacity":"1"})
+		$(".item--01").css({"opacity":"1"})
+	};
+
 	/*********Fised Slider col 2 **********/
 
 
@@ -228,6 +263,8 @@ $(function(){
 		activTitlePathAni();
 		activeIntroPathAni();
 		activataTw();
+		settingFixedElOpacity();
+		settingFixedElPos();
 	}
 
 	$(".loading-page").fadeOut(1000, function(){

@@ -3,6 +3,15 @@
 /**************/
 
 /**** PC 1980 ****/
+.story-title .title-sub { margin-bottom: 15px; }
+.story-title .title-sub img { display:block; margin: 0 auto; }
+
+.container .story-header { padding: 100px 0; }
+.top-video-area .top-video {   max-width: 1500px;  max-height: 700px; overflow: hidden; 
+border: none; border-radius: 30px;}
+.video-border { border:none;}
+.story-title .title-main .title-svg svg path { fill:#000;}
+ 
 .deco-curve-top-1 { position: absolute; top: 0; right: -220px;}
 .deco-curve-top-2 { position: absolute; top: 200px; left: -50px;  }
 .deco-line-box {position: relative;  position: absolute; width:100%; bottom: 80px;left: 0;}
@@ -17,27 +26,70 @@
 #CURVE_BOX_SIDE path { stroke-dasharray: 500px; stroke-dashoffset: 500px;}
 .line-vertical { height:0%; }
 
-.itv--01 { max-width: 1300px; }
-.itv--01 .itv-video-deco-curve { top: 50%; }
-
 .itv-video-line-deco { position: absolute; top: 50%; right: -100em; z-index:0;}
 .itv-video-line-deco .line-body { width:100em; height:1px; background:#222; }
-.itv-point-text { position: absolute; top: 60%; right:-220px; z-index:2; }
-.itv-point-text .text-as-img {  background: #efeadc; }
+.itv-point-text { position: absolute;  z-index:2; }
+.itv-point-text .text-as-img {  background: #fdf9ee; }
 .itv-point-text .text-as-img img {}
 
+.itv--01 { max-width: 1300px; }
+.itv--01 .itv-video-deco-curve { top: 50%; }
+.itv--01 .video-tag.video-shadow-bottom { box-shadow:none; border-radius: 20px; overflow: hidden;} 
+.itv--01 .itv-point-text {    top: 60%; right: -290px; }
+
+.spacer .text-nobox p { margin: 7px auto; }
+
+.fs-a--1 {background: #fdf9ee;border: none;}
+.fs-a--1 .slider-item img { left: 0; margin: 0 auto;  display: block;width: auto;min-height: auto; max-width: 1400px; height: auto;}
+.fs-a--1 .spacer .text-nobox { font-size: 18px;line-height: 1.55; }
+.fs-a--1 .spacer .text-nobox .half { background:#fff; padding: 20px;border: 1px solid #111; max-width: 500px;text-align: center; }
+.half-right { left: 50%; position: relative;}
+
+.fs-a--2 {background: #fdf9ee;border: none;}
+.fs-a--2 .slider-item img { left: 0; margin: 0 auto;display: block;width: auto;min-height: auto; max-width: 1400px; height: auto;}
+.fs-a--2 .spacer .text-nobox { font-size: 18px;line-height: 1.55; }
+.fs-a--2 .spacer .text-nobox .half { background:#fff; padding: 20px;border: 1px solid #111; max-width: 500px;text-align: center; }
+
+.nav-black .nav-wrap.nav-with-bg { background: #d0c9b7; }
+
+#S01_01 { margin: 0 auto; width: 600px;}
+#S01_01 img { width: 100%;}
+img.img-shadow-bottom {  box-shadow: 20px 20px 0px #222;}
+
+
 #S01_IMG_DECO_CURVE .path-curve-down {}
-#S02_03 { margin-bottom:0;}
-#S02_04 { top: 0px; left:150px; margin-bottom:0; transform: translateY(-100px);}
+#S01_04 { margin: 40px auto;}
+#S01_04 img {max-width: 550px;}
+#S01_04 .caption { text-align: center;} 
+
+
+#S01_02 img { width:100%; box-sizing:border-box; padding: 10px; background:#fff;  
+transform: rotate(-4deg) translate(-80px, 0px); -webkit-transform: rotate(-4deg) translate(-80px, 0px);
+-os-transform: rotate(-4deg) translate(-80px, 0px); max-width: 700px;transform-origin: center; box-shadow: 5px 5px 30px rgb(97 55 36 / 10%);}
+
+#S02_03 { margin-bottom:0;  z-index: 1;  max-width: 1300px;}
+#S02_03 > img { width:100%;  }
+#S02_03 .caption { margin: 20px 0; display:none;}
+#S02_04 { top: 0px; left:150px; margin-bottom:0; transform: translate(200px, -150px);z-index: 2;}
 #S02_04 .img-side-text {display: block; bottom: 100px; right: 500px; width: 400px;} 
 #S02_04 .img-side-text .path {width: 150%; height: 1px; background: #222;margin-bottom: 20px; z-index: 1; position: relative;}
 #S02_04 > img { position: relative; z-index: 2;}
+
+#S02_08 { margin-bottom:0;  z-index: 1;  max-width: 1300px;}
+#S02_08 > img { width:100%;  }
+#S02_08 .caption { margin: 20px 0; display:none;}
+#S02_09 { top: 0px; right:150px; margin-bottom:0; transform: translate(-200px, -50px);z-index: 2;}
+#S02_09 .img-side-text {display: block; bottom: 200px; right: -450px; width: 400px;} 
+#S02_09 .img-side-text .path {width: 150%; height: 1px; background: #222;margin-bottom: 20px; z-index: 1; position: relative; left: -50%;}
+#S02_09 > img { position: relative; z-index: 2;}
+
 
 #S03_01 { right: 150px; position: relative;}
 #S03_01 .img-side-text { display: block; bottom: 50px; left: 350px; width: 600px;} 
 #S03_01 .img-side-text .text-holder {  box-sizing: border-box; padding: 20px; background:#111; }
 #S03_01 .img-side-text .text-holder img { width:100%; }
 .fs-a--3 .fixed-graphic .slider-item img {  width: auto; height: auto; min-height: inherit;  top: 50%; margin-top: -300px;}
+
 
 .itv--02 {  max-width: 1300px;}
 .itv--02 .itv-video {}
